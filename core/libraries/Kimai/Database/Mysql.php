@@ -127,6 +127,11 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 				
 				$customer = new Customer();
 				$customer->setID($row['customerID']);
+				$customer->setComment($row['comment']);
+				$customer->setCompany($row['company']);
+				$customer->setName($row['name']);
+				$customer->setVisible($row['visible']);
+				$customer->setDeleted($row['trash']);
 				
 				$retValue[] = $customer;
 			}
