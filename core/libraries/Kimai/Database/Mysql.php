@@ -18,6 +18,7 @@
  */
 
 include(WEBROOT.'libraries/mysql.class.php');
+include(WEBROOT.'libraries/Kimai/Classes/class.customer.php');
 
 /**
  * Provides the database layer for MySQL.
@@ -106,6 +107,33 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
           return $this->conn->RowArray(0,MYSQL_ASSOC);
       }
   }
+
+  	/**
+  	 * 
+  	 * @return Ambigous <boolean, Array>	false or an Array of Customer-Instances
+  	 * @author lippoliv
+  	 */
+	public function getCustomers(){
+		$retValue = false;
+		
+		$table = $this->getCustomerTable();
+		$result = $this->conn->SelectRows($table);
+		
+		if(!$result){
+			$this->logLastError('getCustomers');
+		} else {
+			for($i = 0; $i < $this->conn->RowCount(); $i++){
+				$row = $this->conn->RowArray($i, MYSQL_ASSOC);
+				
+				$customer = new Customer();
+				$customer->setID($row['customerID']);
+				
+				$retValue[] = $customer;
+			}
+		}
+		
+		return $retValue;
+	}
 
   /**
   * Edits a customer by replacing his data by the new array
