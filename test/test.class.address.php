@@ -83,9 +83,59 @@
 			$this->TestContactNOK();
 		}
 		
+		private function TestStreetNOK(){
+			$this->Address->setStreet("*");
+			
+			if($this->Address->getStreet() == "*"){
+				$this->AddMessageFailed("Address::Street can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::Street can't be set to just special characters");
+			}
+		}
+		
+		private function TestStreetOK(){
+			$this->Address->setStreet("Street");
+			
+			if($this->Address->getStreet() == "Street"){
+				$this->AddMessageSuccess("Address::Street can be set to 'Contact'");
+			} else {
+				$this->AddMessageFailed("Address::Street can't be set to 'Contact'");
+			}
+			
+			$this->Address->setStreet("Street Street");
+			
+			if($this->Address->getStreet() == "Street Street"){
+				$this->AddMessageSuccess("Address::Street can be set to 'Street Street'");
+			} else {
+				$this->AddMessageFailed("Address::Street can't be set to 'Street Street'");
+			}
+			
+			$this->Address->setStreet("Street Street 1");
+			
+			if($this->Address->getStreet() == "Street Street 1"){
+				$this->AddMessageSuccess("Address::Street can be set to 'Street Street 1'");
+			} else {
+				$this->AddMessageFailed("Address::Street can't be set to 'Street Street 1'");
+			}
+
+			$this->Address->setStreet("");
+				
+			if($this->Address->getStreet() == ""){
+				$this->AddMessageSuccess("Address::Street can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::Street can't be set to ''");
+			}
+		}
+		
+		private function TestStreet(){
+			$this->TestStreetOK();
+			$this->TestStreetNOK();
+		}
+		
 		public function RunTests(){
-			$this->TestCity();
 			$this->TestContact();
+			$this->TestStreet();
+			$this->TestCity();
 		}
 		
 		private function AddMessageSuccess($Msg){
@@ -119,15 +169,6 @@
 	$Address->setStreet("Street");
 	$Address->setWeb("Web");
 	$Address->setZipcode("Zip");
-
-	
-	if($Address->getContact() != "Contact"){
-		$errs[] = "getContact doesn't return expected Value ('Contact' vs. '". $Address->getContact() ."')";
-	}
-	
-	if($Address->getStreet() != "Street"){
-		$errs[] = "getStreet doesn't return expected Value ('Street' vs. '". $Address->getStreet() ."')";
-	}
 	
 	if($Address->getZipcode() != ""){
 		$errs[] = "getZipcode doesn't return expected Value ('' vs. '". $Address->getZipcode() ."')";
