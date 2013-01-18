@@ -138,13 +138,12 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 				$adress->setWeb($row['homepage']);
 				$adress->setZipcode($row['zipcode']);
 				
-				$customer = new Customer();
+				$customer = new Customer($row['trash']);
 				$customer->setID($row['customerID']);
 				$customer->setComment($row['comment']);
 				$customer->setCompany($row['company']);
 				$customer->setName($row['name']);
 				$customer->setVisible($row['visible']);
-				$customer->setDeleted($row['trash']);
 				$customer->setAdress($adress);
 				
 				$retValue[] = $customer;
