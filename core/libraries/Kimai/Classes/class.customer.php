@@ -4,7 +4,7 @@
 	/**
 	 * Represents an Kimai-Customer with all of his propertys and all of his relevant functionalitys
 	 * 
-	 * @author Oliver Lippert
+	 * @author	Oliver Lippert
 	 */
 	class Customer{
 		private $ID;
