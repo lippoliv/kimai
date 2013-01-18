@@ -247,7 +247,7 @@
 	}
 ?>
 
-<h2>Testresult for class.address.php</h2>
+<h2>Checking Address-Object</h2>
 <?php $AddressTest->ShowResults(); ?>
 <?php if(count($errs) > 0): ?>
 	<?php foreach($errs as $err): ?>
