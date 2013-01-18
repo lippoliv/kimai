@@ -27,10 +27,10 @@
 	if($Adress->getZipcode() != ""){
 		$errs[] = "getZipcode doesn't return expected Value ('' vs. '". $Adress->getZipcode() ."')";
 	} else {
-		$Adress->setZipcode("00000");
+		$Adress->setZipcode("00001");
 
-		if($Adress->getZipcode() != "00000"){
-			$errs[] = "getZipcode doesn't return expected Value ('00000' vs. '". $Adress->getZipcode() ."')";
+		if($Adress->getZipcode() != "00001"){
+			$errs[] = "getZipcode doesn't return expected Value ('00001' vs. '". $Adress->getZipcode() ."')";
 		}
 	}
 	

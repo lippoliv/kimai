@@ -95,7 +95,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setZipcode($ZIP){
-			$this->ZIP = $ZIP;
+			if(intval($ZIP) != 0){
+				$this->ZIP = $ZIP;
+			}
 		}
 		
 		/**
