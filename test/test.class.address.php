@@ -1,6 +1,7 @@
 <?php
 	include_once '../core/libraries/Kimai/Classes/class.address.php';
 	
+	$errs = array();
 	$Adress = new Address();
 	
 	$Adress->setCity("City");
@@ -101,9 +102,13 @@
 	}
 ?>
 
-<h2>Testresult for class.adress.php</h2>
-<?php foreach($errs as $err): ?>
-	<p>
-		<?php echo $err; ?>
-	</p>
-<?php endforeach; ?>
+<h2>Testresult for class.address.php</h2>
+<?php if(count($errs) > 0): ?>
+	<?php foreach($errs as $err): ?>
+		<p>
+			<?php echo $err; ?>
+		</p>
+	<?php endforeach; ?>
+<?php else: ?>
+	<p>No errors found</p>
+<?php endif; ?>
