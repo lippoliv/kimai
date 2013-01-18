@@ -143,6 +143,12 @@ switch($_REQUEST['a'])
         echo $view->render('dev/objectcheck/footer.php');
         
         break;
+	case "dev.check":
+		echo $view->render('dev/check/header.php');
+        echo $view->render('dev/check/content.php');
+        echo $view->render('dev/check/footer.php');
+        
+        break;
     case "checklogin":
         $name = htmlspecialchars(trim($name));
 
