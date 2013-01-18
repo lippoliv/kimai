@@ -17,11 +17,11 @@
  * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
  */
 	/**
-	 * Represents information about Adresses
+	 * Represents information about Addresses
 	 * 
 	 * @author	Oliver Lippert
 	 */
-	class Adress{
+	class Address{
 		private $Contact;
 		private $Street;
 		private $ZIP;
@@ -55,7 +55,7 @@
 		}
 		
 		/**
-		 * Returns the Street-Name of the Adress
+		 * Returns the Street-Name of the Address
 		 * 
 		 * @return	string	the Street-Name
 		 * 
@@ -66,7 +66,7 @@
 		}
 		
 		/**
-		 * Defines the Street-Name of the Adress
+		 * Defines the Street-Name of the Address
 		 * 
 		 * @param	string	the Street-Name
 		 * 
@@ -77,7 +77,7 @@
 		}
 		
 		/**
-		 * Returns the ZIP-Code of the Adress
+		 * Returns the ZIP-Code of the Address
 		 * 
 		 * @return	string	the ZIP-Code
 		 * 
@@ -88,7 +88,7 @@
 		}
 		
 		/**
-		 * Defines the ZIP-Code of the Adress
+		 * Defines the ZIP-Code of the Address
 		 * 
 		 * @param	string	the ZIP-Code
 		 * 
@@ -99,7 +99,7 @@
 		}
 		
 		/**
-		 * Returns the City of the Adress
+		 * Returns the City of the Address
 		 * 
 		 * @return	string	the City
 		 * 
@@ -110,7 +110,7 @@
 		}
 		
 		/**
-		 * Defines the City of the Adress
+		 * Defines the City of the Address
 		 * 
 		 * @param	string	the City
 		 * 
@@ -121,7 +121,7 @@
 		}
 		
 		/**
-		 * Returns the Phone-Number of the Adress
+		 * Returns the Phone-Number of the Address
 		 * 
 		 * @return	string	the Phone-Number
 		 * 
@@ -132,7 +132,7 @@
 		}
 		
 		/**
-		 * Defines the Phone-Number of the Adress
+		 * Defines the Phone-Number of the Address
 		 * 
 		 * @param	string	the Phone-Number
 		 * 
@@ -143,7 +143,7 @@
 		}
 		
 		/**
-		 * Returns the Fax-Number of the Adress
+		 * Returns the Fax-Number of the Address
 		 * 
 		 * @return	string	the Fax-Number
 		 * 
@@ -154,7 +154,7 @@
 		}
 		
 		/**
-		 * Defines the Fax-Number of the Adress
+		 * Defines the Fax-Number of the Address
 		 * 
 		 * @param	string	the Fax-Number
 		 * 
@@ -165,7 +165,7 @@
 		}
 		
 		/**
-		 * Returns the Mobile-Number of the Adress
+		 * Returns the Mobile-Number of the Address
 		 * 
 		 * @return	string	the Mobile-Number
 		 * 
@@ -176,7 +176,7 @@
 		}
 		
 		/**
-		 * Defines the Mobile-Number of the Adress
+		 * Defines the Mobile-Number of the Address
 		 * 
 		 * @param	string	the Mobile-Number
 		 * 
@@ -187,9 +187,9 @@
 		}
 		
 		/**
-		 * Returns the Mail-Adress of the Adress
+		 * Returns the Mail-Address of the Address
 		 * 
-		 * @return	string	the Mail-Adress
+		 * @return	string	the Mail-Address
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -198,9 +198,9 @@
 		}
 		
 		/**
-		 * Defines the Mail-Adress of the Adress
+		 * Defines the Mail-Address of the Address
 		 * 
-		 * @param	string	the Mail-Adress
+		 * @param	string	the Mail-Address
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -209,9 +209,9 @@
 		}
 		
 		/**
-		 * Returns the Web-Adress of the Adress
+		 * Returns the Web-Address of the Address
 		 * 
-		 * @return	string	the Web-Adress
+		 * @return	string	the Web-Address
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -220,9 +220,9 @@
 		}
 		
 		/**
-		 * Defines the Web-Adress of the Adress
+		 * Defines the Web-Address of the Address
 		 * 
-		 * @param	string	the Web-Adress
+		 * @param	string	the Web-Address
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -231,9 +231,9 @@
 		}
 
 		/**
-		 * Returns all the Adress-Propertys in an simple String
+		 * Returns all the Address-Propertys in an simple String
 		 *
-		 * @return	string	all Adress-Propertys
+		 * @return	string	all Address-Propertys
 		 */
 		public function toString(){
 			return $this->getContact() ."<br />". $this->getStreet() ."<br />". $this->getZipcode() ." ". $this->getCity() ."<br />TEL ". $this->getPhone() ."<br />MOB ". $this->getMobile() ."<br />FAX ". $this->getFax() ."<br />WWW ". $this->getWeb() ."<br />MAIL ". $this->getMail();

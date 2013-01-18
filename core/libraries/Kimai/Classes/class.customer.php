@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
  */
-	include_once 'class.adress.php';
+	include_once 'class.address.php';
 	
 	/**
 	 * Represents an Kimai-Customer with all of his propertys and all of his relevant functionalitys

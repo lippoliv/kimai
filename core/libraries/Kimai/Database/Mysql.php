@@ -20,7 +20,7 @@
 include(WEBROOT.'libraries/mysql.class.php');
 
 include_once WEBROOT.'libraries/Kimai/Classes/class.customer.php';
-include_once WEBROOT.'libraries/Kimai/Classes/class.adress.php';
+include_once WEBROOT.'libraries/Kimai/Classes/class.address.php';
 
 /**
  * Provides the database layer for MySQL.
@@ -128,16 +128,16 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			for($i = 0; $i < $this->conn->RowCount(); $i++){
 				$row = $this->conn->RowArray($i, MYSQL_ASSOC);
 				
-				$adress = new Adress();
-				$adress->setCity($row['city']);
-				$adress->setContact($row['contact']);
-				$adress->setFax($row['fax']);
-				$adress->setMail($row['mail']);
-				$adress->setMobile($row['mobile']);
-				$adress->setPhone($row['phone']);
-				$adress->setStreet($row['street']);
-				$adress->setWeb($row['homepage']);
-				$adress->setZipcode($row['zipcode']);
+				$address = new Address();
+				$address->setCity($row['city']);
+				$address->setContact($row['contact']);
+				$address->setFax($row['fax']);
+				$address->setMail($row['mail']);
+				$address->setMobile($row['mobile']);
+				$address->setPhone($row['phone']);
+				$address->setStreet($row['street']);
+				$address->setWeb($row['homepage']);
+				$address->setZipcode($row['zipcode']);
 				
 				$customer = new Customer($row['trash']);
 				$customer->setID($row['customerID']);
@@ -145,7 +145,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 				$customer->setCompany($row['company']);
 				$customer->setName($row['name']);
 				$customer->setVisible($row['visible']);
-				$customer->setAdress($adress);
+				$customer->setAdress($address);
 				
 				$retValue[] = $customer;
 			}

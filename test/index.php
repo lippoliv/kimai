@@ -1,3 +1,3 @@
 <?php
-	include_once 'test.class.adress.php';
+	include_once 'test.class.address.php';
 ?>

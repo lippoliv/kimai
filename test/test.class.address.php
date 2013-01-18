@@ -1,7 +1,7 @@
 <?php
-	include_once '../core/libraries/Kimai/Classes/class.adress.php';
+	include_once '../core/libraries/Kimai/Classes/class.address.php';
 	
-	$Adress = new Adress();
+	$Adress = new Address();
 	
 	$Adress->setCity("City");
 	$Adress->setContact("Contact");
