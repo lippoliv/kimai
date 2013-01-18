@@ -67,7 +67,7 @@
 		}
 		
 		public function toString(){
-			return "#". $this->getID() .": ". $this->getName() ." works for '". $this->getCompany() ."' and has the comment '". $this->getComment() ."' and visible:". $this->isVisible() ." and deleted:". $this->isDeleted() ." Adress:". $this->getAdress()->toString();
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />COMPANY ". $this->getCompany() ."<br />COMMENT ". $this->getComment() ."<br />VISIBLE ". $this->isVisible() ."<br />DELETED ". $this->isDeleted() ."<br>ADRESS ". $this->getAdress()->toString() ."</div>";
 		}
 	}
 ?>
