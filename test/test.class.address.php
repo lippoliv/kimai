@@ -181,11 +181,69 @@
 			$this->TestZipcodeNOK();
 		}
 		
+		private function TestFaxNOK(){
+			$this->Address->setFax("*");
+			
+			if($this->Address->getFax() == "*"){
+				$this->AddMessageFailed("Address::Fax can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::Fax can't be set to just special characters");
+			}
+			
+			$this->Address->setFax("Fax");
+			
+			if($this->Address->getFax() == "Fax"){
+				$this->AddMessageFailed("Address::Fax can be set to 'Fax'");
+			} else {
+				$this->AddMessageSuccess("Address::Fax can't be set to 'Fax'");
+			}
+			
+			$this->Address->setFax("+49 2345 Hallo");
+			
+			if($this->Address->getFax() == "+49 2345 Hallo"){
+				$this->AddMessageFailed("Address::Fax can be set to '+49 2345 Hallo'");
+			} else {
+				$this->AddMessageSuccess("Address::Fax can't be set to '+49 2345 Hallo'");
+			}
+		}
+		
+		private function TestFaxOK(){
+			$this->Address->setFax("1234512345");
+			
+			if($this->Address->getFax() == "1234512345"){
+				$this->AddMessageSuccess("Address::Fax can be set to '1234512345'");
+			} else {
+				$this->AddMessageFailed("Address::Fax can't be set to '1234512345'");
+			}
+
+			$this->Address->setFax("+49 2345 12345");
+				
+			if($this->Address->getFax() == "+49 2345 12345"){
+				$this->AddMessageSuccess("Address::Fax can be set to '+49 2345 12345'");
+			} else {
+				$this->AddMessageFailed("Address::Fax can't be set to '+49 2345 12345'");
+			}
+			
+			$this->Address->setFax("");
+			
+			if($this->Address->getFax() == ""){
+				$this->AddMessageSuccess("Address::Fax can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::Fax can't be set to ''");
+			}
+		}
+		
+		private function TestFax(){
+			$this->TestFaxOK();
+			$this->TestFaxNOK();
+		}
+		
 		public function RunTests(){
 			$this->TestContact();
 			$this->TestStreet();
 			$this->TestZipcode();
 			$this->TestCity();
+			$this->TestFax();
 		}
 		
 		private function AddMessageSuccess($Msg){
@@ -211,24 +269,11 @@
 	$errs = array();
 	$Address = new Address();
 	
-	$Address->setCity("City");
-	$Address->setContact("Contact");
 	$Address->setFax("Fax");
 	$Address->setMail("Mail");
 	$Address->setPhone("Phone");
-	$Address->setStreet("Street");
 	$Address->setWeb("Web");
-	$Address->setZipcode("Zip");
-	
-	if($Address->getZipcode() != ""){
-		$errs[] = "getZipcode doesn't return expected Value ('' vs. '". $Address->getZipcode() ."')";
-	} else {
-		$Address->setZipcode("00001");
 
-		if($Address->getZipcode() != "00001"){
-			$errs[] = "getZipcode doesn't return expected Value ('00001' vs. '". $Address->getZipcode() ."')";
-		}
-	}
 	
 	if($Address->getFax() != ""){
 		$errs[] = "getFax doesn't return expected Value ('' vs. '". $Address->getFax() ."')";
