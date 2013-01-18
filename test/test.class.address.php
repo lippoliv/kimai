@@ -13,7 +13,9 @@
 			$this->Address->setCity("*");
 			
 			if($this->Address->getCity() == "*"){
-				$this->AddMessageFailed("Address::getCity can be set to just special characters");
+				$this->AddMessageFailed("Address::City can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::City can't be set to just special characters");
 			}
 		}
 		
@@ -21,17 +23,17 @@
 			$this->Address->setCity("City");
 			
 			if($this->Address->getCity() == "City"){
-				$this->AddMessageSuccess("Address::getCity can be set to 'City'");
+				$this->AddMessageSuccess("Address::City can be set to 'City'");
 			} else {
-				$this->AddMessageFailed("Address::getCity can't be set to 'City'");
+				$this->AddMessageFailed("Address::City can't be set to 'City'");
 			}
 
 			$this->Address->setCity("");
 				
 			if($this->Address->getCity() == ""){
-				$this->AddMessageSuccess("Address::getCity can be set to ''");
+				$this->AddMessageSuccess("Address::City can be set to ''");
 			} else {
-				$this->AddMessageFailed("Address::getCity can't be set to ''");
+				$this->AddMessageFailed("Address::City can't be set to ''");
 			}
 		}
 		
@@ -40,8 +42,50 @@
 			$this->TestCityNOK();
 		}
 		
+		private function TestContactNOK(){
+			$this->Address->setContact("*");
+				
+			if($this->Address->getContact() == "*"){
+				$this->AddMessageFailed("Address::Contact can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::Contact can't be set to just special characters");
+			}
+		}
+		
+		private function TestContactOK(){
+			$this->Address->setContact("Contact");
+			
+			if($this->Address->getContact() == "Contact"){
+				$this->AddMessageSuccess("Address::Contact can be set to 'Contact'");
+			} else {
+				$this->AddMessageFailed("Address::Contact can't be set to 'Contact'");
+			}
+			
+			$this->Address->setContact("Contact Contact");
+			
+			if($this->Address->getContact() == "Contact Contact"){
+				$this->AddMessageSuccess("Address::Contact can be set to 'Contact Contact'");
+			} else {
+				$this->AddMessageFailed("Address::Contact can't be set to 'Contact Contact'");
+			}
+
+			$this->Address->setContact("");
+				
+			if($this->Address->getContact() == ""){
+				$this->AddMessageSuccess("Address::Contact can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::Contact can't be set to ''");
+			}
+		}
+		
+		private function TestContact(){
+			$this->TestContactOK();
+			$this->TestContactNOK();
+		}
+		
 		public function RunTests(){
 			$this->TestCity();
+			$this->TestContact();
 		}
 		
 		private function AddMessageSuccess($Msg){
