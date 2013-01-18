@@ -279,6 +279,63 @@
 			$this->TestPhoneNOK();
 		}
 		
+		private function TestMailNOK(){
+			$this->Address->setMail("*");
+			
+			if($this->Address->getMail() == "*"){
+				$this->AddMessageFailed("Address::Mail can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::Mail can't be set to just special characters");
+			}
+			
+			$this->Address->setMail("Mail");
+			
+			if($this->Address->getMail() == "Mail"){
+				$this->AddMessageFailed("Address::Mail can be set to 'Mail'");
+			} else {
+				$this->AddMessageSuccess("Address::Mail can't be set to 'Mail'");
+			}
+			
+			$this->Address->setMail("Mail@");
+			
+			if($this->Address->getMail() == "Mail@"){
+				$this->AddMessageFailed("Address::Mail can be set to 'Mail@'");
+			} else {
+				$this->AddMessageSuccess("Address::Mail can't be set to 'Mail@'");
+			}
+			
+			$this->Address->setMail("Mail@mail");
+			
+			if($this->Address->getMail() == "Mail@mail"){
+				$this->AddMessageFailed("Address::Mail can be set to 'Mail@mail'");
+			} else {
+				$this->AddMessageSuccess("Address::Mail can't be set to 'Mail@mail'");
+			}
+		}
+		
+		private function TestMailOK(){
+			$this->Address->setMail("mail@mail.com");
+			
+			if($this->Address->getMail() == "mail@mail.com"){
+				$this->AddMessageSuccess("Address::Mail can be set to 'mail@mail.com'");
+			} else {
+				$this->AddMessageFailed("Address::Mail can't be set to 'mail@mail.com'");
+			}
+			
+			$this->Address->setMail("");
+			
+			if($this->Address->getMail() == ""){
+				$this->AddMessageSuccess("Address::Mail can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::Mail can't be set to ''");
+			}
+		}
+		
+		private function TestMail(){
+			$this->TestMailOK();
+			$this->TestMailNOK();
+		}
+		
 		public function RunTests(){
 			$this->TestContact();
 			$this->TestStreet();
@@ -286,6 +343,7 @@
 			$this->TestCity();
 			$this->TestFax();
 			$this->TestPhone();
+			$this->TestMail();
 		}
 		
 		private function AddMessageSuccess($Msg){
@@ -315,16 +373,6 @@
 	$Address->setWeb("Web");
 
 	
-	
-	if($Address->getMail() != ""){
-		$errs[] = "getMail doesn't return expected Value ('' vs. '". $Address->getMail() ."')";
-	} else {
-		$Address->setMail("mail@mail.com");
-		
-		if($Address->getMail() != "mail@mail.com"){
-			$errs[] = "getMail doesn't return expected Value ('mail@mail.com' vs. '". $Address->getMail() ."')";
-		}
-	}
 	
 	if($Address->getWeb() != ""){
 		$errs[] = "getWeb doesn't return expected Value ('' vs. '". $Address->getWeb() ."')";
