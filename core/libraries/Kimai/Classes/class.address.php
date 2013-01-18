@@ -241,7 +241,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setWeb($Web){
-			if(filter_var($Web, FILTER_VALIDATE_URL)){
+			if(filter_var($Web, FILTER_VALIDATE_URL) or $Web == ''){
 				$this->Web = $Web;
 			}
 		}

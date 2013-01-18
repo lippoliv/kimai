@@ -84,11 +84,13 @@
 		if($Adress->getWeb() != "http://www.google.com"){
 			$errs[] = "getWeb doesn't return expected Value ('http://www.google.com' vs. '". $Adress->getWeb() ."')";
 		} else {
+			$Adress->setWeb("");
 			$Adress->setWeb("www.google.com");
 			
 			if($Adress->getWeb() != "http://www.google.com"){
 				$errs[] = "getWeb doesn't return expected Value ('http://www.google.com' vs. '". $Adress->getWeb() ."')";
 			} else {
+				$Adress->setWeb("");
 				$Adress->setWeb("google.com");
 				
 				if($Adress->getWeb() != "http://www.google.com"){
