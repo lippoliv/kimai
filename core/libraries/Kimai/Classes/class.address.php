@@ -246,11 +246,11 @@
 		public function setWeb($Web){
 			$Web = strtolower($Web);
 			
-			if(!substr($Web, 0, 4) == "http"){
+			if(substr($Web, 0, 4) != "http"){
 				$Web = "http://$Web";
 			}
 			
-			if(filter_var($Web, FILTER_VALIDATE_URL) or $Web == ''){
+			if(filter_var($Web, FILTER_VALIDATE_URL) || $Web == ''){
 				$this->Web = $Web;
 			}
 		}

@@ -438,7 +438,7 @@
 			
 			$this->Address->setWeb("www.google.com");
 			
-			if($this->Address->getWeb() == "www.google.com"){
+			if($this->Address->getWeb() == "http://www.google.com"){
 				$this->AddMessageSuccess("Address::Web can be set to 'www.google.com'");
 			} else {
 				$this->AddMessageFailed("Address::Web can't be set to 'www.google.com'");
@@ -446,7 +446,7 @@
 			
 			$this->Address->setWeb("google.com");
 			
-			if($this->Address->getWeb() == "google.com"){
+			if($this->Address->getWeb() == "http://google.com"){
 				$this->AddMessageSuccess("Address::Web can be set to 'google.com'");
 			} else {
 				$this->AddMessageFailed("Address::Web can't be set to 'google.com'");
