@@ -141,7 +141,12 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setPhone($Phone){
-			$this->Phone = $Phone;
+			//Convert +49 to 0049, so its checkable through intval
+			$MyPhone = str_replace("+", "00", $Phone);
+			
+			if(intval($MyPhone) != 0){
+				$this->Phone = $Phone;
+			}
 		}
 		
 		/**
