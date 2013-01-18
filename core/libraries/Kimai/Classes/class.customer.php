@@ -33,6 +33,17 @@
 		private $Adress;
 		
 		/**
+		 * Initializes the Object-Instance
+		 * 
+		 * @param	bool	the Deletion-State of the Customer
+		 * 
+		 * @author	Oliver Lippert
+		 */
+		public function __construct($Deleted){
+			$this->Deleted = $Deleted;
+		}
+		
+		/**
 		 * Returns the ID of the Customer
 		 * 
 		 * @return	double	the Customer-ID
