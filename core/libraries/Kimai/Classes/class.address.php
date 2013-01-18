@@ -241,7 +241,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setWeb($Web){
-			$this->Web = $Web;
+			if(filter_var($Web, FILTER_VALIDATE_URL)){
+				$this->Web = $Web;
+			}
 		}
 
 		/**
