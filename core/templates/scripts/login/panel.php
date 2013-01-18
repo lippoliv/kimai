@@ -14,6 +14,12 @@
                 </fieldset>
             </form>
 
+            <div style="color:#fff">
+            	<?php global $database; ?>
+            	<?php foreach($database->getCustomers() as $Customer): ?>
+            		<?php echo $Customer->toString(); ?>
+            	<?php endforeach; ?>
+            </div>
             
             <div id="warning">
                 <p id="JSwarning"><strong style="color:red"><?php $this->kga['lang']['JSwarning']?></strong></p>

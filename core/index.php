@@ -137,7 +137,12 @@ if (!$justLoggedOut && $authPlugin->autoLoginPossible() && $authPlugin->performA
 
 switch($_REQUEST['a'])
 {
-
+	case "dev.objectcheck":
+		echo $view->render('dev/objectcheck/header.php');
+        echo $view->render('dev/objectcheck/content.php');
+        echo $view->render('dev/objectcheck/footer.php');
+        
+        break;
     case "checklogin":
         $name = htmlspecialchars(trim($name));
 
