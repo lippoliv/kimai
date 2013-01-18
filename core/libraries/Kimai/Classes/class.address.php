@@ -144,7 +144,7 @@
 			//Convert +49 to 0049, so its checkable through intval
 			$MyPhone = str_replace("+", "00", $Phone);
 			
-			if(intval($MyPhone) != 0){
+			if(intval($MyPhone) != 0 || $Phone == ''){
 				$this->Phone = $Phone;
 			}
 		}
