@@ -112,8 +112,9 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 
   	/**
   	 * 
-  	 * @return Ambigous <boolean, Array>	false or an Array of Customer-Instances
-  	 * @author lippoliv
+  	 * @return 	boolean|Array	false or an Array of Customer-Instances
+  	 * 
+  	 * @author 	Oliver Lippert
   	 */
 	public function getCustomers(){
 		$retValue = false;
