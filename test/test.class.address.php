@@ -132,9 +132,59 @@
 			$this->TestStreetNOK();
 		}
 		
+		private function TestZipcodeNOK(){
+			$this->Address->setZipcode("*");
+			
+			if($this->Address->getZipcode() == "*"){
+				$this->AddMessageFailed("Address::Zipcode can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::Zipcode can't be set to just special characters");
+			}
+			
+			$this->Address->setZipcode("Zip");
+			
+			if($this->Address->getZipcode() == "Zip"){
+				$this->AddMessageFailed("Address::Zipcode can be set to 'Zip'");
+			} else {
+				$this->AddMessageSuccess("Address::Zipcode can't be set to 'Zip'");
+			}
+			
+			$this->Address->setZipcode("0001");
+			
+			if($this->Address->getZipcode() == "0001"){
+				$this->AddMessageFailed("Address::Zipcode can be set to '0001'");
+			} else {
+				$this->AddMessageSuccess("Address::Zipcode can't be set to '0001'");
+			}
+		}
+		
+		private function TestZipcodeOK(){
+			$this->Address->setZipcode("00001");
+			
+			if($this->Address->getZipcode() == "00001"){
+				$this->AddMessageSuccess("Address::Zipcode can be set to '00001'");
+			} else {
+				$this->AddMessageFailed("Address::Zipcode can't be set to '00001'");
+			}
+			
+			$this->Address->setZipcode("");
+			
+			if($this->Address->getZipcode() == ""){
+				$this->AddMessageSuccess("Address::Zipcode can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::Zipcode can't be set to ''");
+			}
+		}
+		
+		private function TestZipcode(){
+			$this->TestZipcodeOK();
+			$this->TestZipcodeNOK();
+		}
+		
 		public function RunTests(){
 			$this->TestContact();
 			$this->TestStreet();
+			$this->TestZipcode();
 			$this->TestCity();
 		}
 		
