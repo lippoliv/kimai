@@ -1,4 +1,6 @@
 <?php
+	include_once 'class.adress.php';
+	
 	class Customer{
 		private $ID;
 		private $Name;
@@ -6,6 +8,7 @@
 		private $Visible;
 		private $Company;
 		private $Deleted;
+		private $Adress;
 		
 		public function getID(){
 			return $this->ID;
@@ -55,8 +58,16 @@
 			$this->Deleted = $Deleted;
 		}
 		
+		public function getAdress(){
+			return $this->Adress;
+		}
+		
+		public function setAdress($Adress){
+			$this->Adress = $Adress;
+		}
+		
 		public function toString(){
-			return "#". $this->getID() .": ". $this->getName() ." works for '". $this->getCompany() ."' and has the comment '". $this->getComment() ."' and visible:". $this->isVisible() ." and deleted:". $this->isDeleted();
+			return "#". $this->getID() .": ". $this->getName() ." works for '". $this->getCompany() ."' and has the comment '". $this->getComment() ."' and visible:". $this->isVisible() ." and deleted:". $this->isDeleted() ." Adress:". $this->getAdress()->toString();
 		}
 	}
 ?>
