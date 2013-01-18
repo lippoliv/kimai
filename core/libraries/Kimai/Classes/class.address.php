@@ -196,7 +196,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setMobile($Mobile){
-			$this->Mobile = $Mobile;
+			if(intval($Mobile) != 0 || $Mobile == ''){
+				$this->Mobile = $Mobile;
+			}
 		}
 		
 		/**
