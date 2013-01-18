@@ -137,16 +137,16 @@ if (!$justLoggedOut && $authPlugin->autoLoginPossible() && $authPlugin->performA
 
 switch($_REQUEST['a'])
 {
-	case "dev.objectcheck":
-		echo $view->render('dev/objectcheck/header.php');
-        echo $view->render('dev/objectcheck/content.php');
-        echo $view->render('dev/objectcheck/footer.php');
+	case "dev.objects":
+		echo $view->render('dev/header.php');
+        echo $view->render('dev/objects.php');
+        echo $view->render('dev/footer.php');
         
         break;
 	case "dev.check":
-		echo $view->render('dev/check/header.php');
-        echo $view->render('dev/check/content.php');
-        echo $view->render('dev/check/footer.php');
+		echo $view->render('dev/header.php');
+        echo $view->render('dev/check.php');
+        echo $view->render('dev/footer.php');
         
         break;
     case "checklogin":
