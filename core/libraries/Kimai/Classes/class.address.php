@@ -170,8 +170,9 @@
 		public function setFax($Fax){
 			//Convert +49 to 0049, so its checkable through intval
 			$MyFax = str_replace("+", "00", $Fax);
+			$MyFax = str_replace(array(0,1,2,3,4,5,6,7,8,9,'/',' '), "", $MyFax);
 			
-			if(intval($MyFax) != 0 || $Fax == ''){
+			if(strlen($MyFax) == 0 || $Fax == ''){
 				$this->Fax = $Fax;
 			}
 		}
