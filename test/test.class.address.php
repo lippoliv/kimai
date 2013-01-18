@@ -279,6 +279,55 @@
 			$this->TestPhoneNOK();
 		}
 		
+		private function TestMobileNOK(){
+			$this->Address->setMobile("*");
+				
+			if($this->Address->getMobile() == "*"){
+				$this->AddMessageFailed("Address::Mobile can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::Mobile can't be set to just special characters");
+			}
+			
+			$this->Address->setMobile("Mobile");
+				
+			if($this->Address->getMobile() == "Mobile"){
+				$this->AddMessageFailed("Address::Mobile can be set to 'Mobile'");
+			} else {
+				$this->AddMessageSuccess("Address::Mobile can't be set to 'Mobile'");
+			}
+		}
+		
+		private function TestMobileOK(){
+			$this->Address->setMobile("1234512345");
+			
+			if($this->Address->getMobile() == "1234512345"){
+				$this->AddMessageSuccess("Address::Mobile can be set to '1234512345'");
+			} else {
+				$this->AddMessageFailed("Address::Mobile can't be set to '1234512345'");
+			}
+
+			$this->Address->setMobile("+49 2345 12345");
+				
+			if($this->Address->getMobile() == "+49 2345 12345"){
+				$this->AddMessageSuccess("Address::Mobile can be set to '+49 2345 12345'");
+			} else {
+				$this->AddMessageFailed("Address::Mobile can't be set to '+49 2345 12345'");
+			}
+			
+			$this->Address->setMobile("");
+			
+			if($this->Address->getMobile() == ""){
+				$this->AddMessageSuccess("Address::Mobile can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::Mobile can't be set to ''");
+			}
+		}
+		
+		private function TestMobile(){
+			$this->TestMobileOK();
+			$this->TestMobileNOK();
+		}
+		
 		private function TestMailNOK(){
 			$this->Address->setMail("*");
 			
@@ -329,55 +378,6 @@
 			} else {
 				$this->AddMessageFailed("Address::Mail can't be set to ''");
 			}
-		}
-		
-		private function TestMobileNOK(){
-			$this->Address->setMobile("*");
-				
-			if($this->Address->getMobile() == "*"){
-				$this->AddMessageFailed("Address::Mobile can be set to just special characters");
-			} else {
-				$this->AddMessageSuccess("Address::Mobile can't be set to just special characters");
-			}
-			
-			$this->Address->setMobile("Mobile");
-				
-			if($this->Address->getMobile() == "Mobile"){
-				$this->AddMessageFailed("Address::Mobile can be set to 'Mobile'");
-			} else {
-				$this->AddMessageSuccess("Address::Mobile can't be set to 'Mobile'");
-			}
-		}
-		
-		private function TestMobileOK(){
-			$this->Address->setMobile("1234512345");
-			
-			if($this->Address->getMobile() == "1234512345"){
-				$this->AddMessageSuccess("Address::Mobile can be set to '1234512345'");
-			} else {
-				$this->AddMessageFailed("Address::Mobile can't be set to '1234512345'");
-			}
-
-			$this->Address->setMobile("+49 2345 12345");
-				
-			if($this->Address->getMobile() == "+49 2345 12345"){
-				$this->AddMessageSuccess("Address::Mobile can be set to '+49 2345 12345'");
-			} else {
-				$this->AddMessageFailed("Address::Mobile can't be set to '+49 2345 12345'");
-			}
-			
-			$this->Address->setMobile("");
-			
-			if($this->Address->getMobile() == ""){
-				$this->AddMessageSuccess("Address::Mobile can be set to ''");
-			} else {
-				$this->AddMessageFailed("Address::Mobile can't be set to ''");
-			}
-		}
-		
-		private function TestMobile(){
-			$this->TestMobileOK();
-			$this->TestMobileNOK();
 		}
 		
 		private function TestMail(){
