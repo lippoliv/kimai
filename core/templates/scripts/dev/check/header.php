@@ -12,7 +12,5 @@
 		<script type="text/javascript" src="libraries/jQuery/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="libraries/jQuery/jquery.cookie.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
-		
-		<link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
 	</head>
 	<body>
