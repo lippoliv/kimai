@@ -1,6 +1,40 @@
 <?php
 	include_once '../core/libraries/Kimai/Classes/class.address.php';
 	
+	class TestAddress{
+		private $Messages = array();
+		private $Address;
+		
+		public function __construct(){
+			$this->Address = new Address();
+		}
+		
+		public function RunTests(){
+			$this->AddMessageFailed("Failed");
+			$this->AddMessageSuccess("Success");
+		}
+		
+		private function AddMessageSuccess($Msg){
+			$this->Messages[] = array($Msg, "green");
+		}
+		
+		private function AddMessageFailed($Msg){
+			$this->Messages[] = array($Msg, "red");
+		}
+		
+		public function ShowResults(){
+			foreach($this->Messages as $Message){
+				echo "<p style='color:". $Message[1] ."'>";
+					echo $Message[0];
+				echo "</p>";
+			}
+		}
+	}
+	
+	$AddressTest = new TestAddress();
+	$AddressTest->RunTests();
+	$AddressTest->ShowResults();
+	
 	$errs = array();
 	$Address = new Address();
 	
