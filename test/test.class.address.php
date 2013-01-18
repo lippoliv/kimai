@@ -9,9 +9,39 @@
 			$this->Address = new Address();
 		}
 		
+		private function TestCityNOK(){
+			$this->Address->setCity("*");
+			
+			if($this->Address->getCity() == "*"){
+				$this->AddMessageFailed("Address::getCity can be set to just special characters");
+			}
+		}
+		
+		private function TestCityOK(){
+			$this->Address->setCity("City");
+			
+			if($this->Address->getCity() == "City"){
+				$this->AddMessageSuccess("Address::getCity can be set to 'City'");
+			} else {
+				$this->AddMessageFailed("Address::getCity can't be set to 'City'");
+			}
+
+			$this->Address->setCity("");
+				
+			if($this->Address->getCity() == ""){
+				$this->AddMessageSuccess("Address::getCity can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::getCity can't be set to ''");
+			}
+		}
+		
+		private function TestCity(){
+			$this->TestCityOK();
+			$this->TestCityNOK();
+		}
+		
 		public function RunTests(){
-			$this->AddMessageFailed("Failed");
-			$this->AddMessageSuccess("Success");
+			$this->TestCity();
 		}
 		
 		private function AddMessageSuccess($Msg){
@@ -33,7 +63,6 @@
 	
 	$AddressTest = new TestAddress();
 	$AddressTest->RunTests();
-	$AddressTest->ShowResults();
 	
 	$errs = array();
 	$Address = new Address();
@@ -46,10 +75,7 @@
 	$Address->setStreet("Street");
 	$Address->setWeb("Web");
 	$Address->setZipcode("Zip");
-	
-	if($Address->getCity() != "City"){
-		$errs[] = "getCity doesn't return expected Value ('City' vs. '". $Address->getCity() ."')";
-	}
+
 	
 	if($Address->getContact() != "Contact"){
 		$errs[] = "getContact doesn't return expected Value ('Contact' vs. '". $Address->getContact() ."')";
@@ -137,6 +163,7 @@
 ?>
 
 <h2>Testresult for class.address.php</h2>
+<?php $AddressTest->ShowResults(); ?>
 <?php if(count($errs) > 0): ?>
 	<?php foreach($errs as $err): ?>
 		<p>
