@@ -217,7 +217,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setMail($Mail){
-			if(filter_var($Mail, FILTER_VALIDATE_EMAIL)){
+			if(filter_var($Mail, FILTER_VALIDATE_EMAIL) or $Mail == ''){
 				$this->Mail = $Mail;
 			}
 		}
