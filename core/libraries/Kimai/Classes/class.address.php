@@ -171,7 +171,7 @@
 			//Convert +49 to 0049, so its checkable through intval
 			$MyFax = str_replace("+", "00", $Fax);
 			
-			if(intval($MyFax) != 0){
+			if(intval($MyFax) != 0 || $Fax == ''){
 				$this->Fax = $Fax;
 			}
 		}
