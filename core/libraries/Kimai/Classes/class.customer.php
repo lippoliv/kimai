@@ -185,9 +185,9 @@
 		}
 		
 		/**
-		 * Returns all the Customers propertys in an simple String.
+		 * Returns all the Customer-Propertys in an simple String
 		 * 
-		 * @return	string	all Customers propertys
+		 * @return	string	all Customer-Propertys
 		 */
 		public function toString(){
 			return "<div>#". $this->getID() .": ". $this->getName() ."<br />COMPANY ". $this->getCompany() ."<br />COMMENT ". $this->getComment() ."<br />VISIBLE ". $this->isVisible() ."<br />DELETED ". $this->isDeleted() ."<br>ADRESS ". $this->getAdress()->toString() ."</div>";
