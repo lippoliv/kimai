@@ -246,7 +246,7 @@
 		public function setWeb($Web){
 			$Web = strtolower($Web);
 			
-			if(substr($Web, 0, 4) != "http"){
+			if(substr($Web, 0, 4) != "http" && $Web != ''){
 				$Web = "http://$Web";
 			}
 			
