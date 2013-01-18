@@ -238,12 +238,54 @@
 			$this->TestFaxNOK();
 		}
 		
+		private function TestPhoneNOK(){
+			$this->Address->setPhone("*");
+				
+			if($this->Address->getPhone() == "*"){
+				$this->AddMessageFailed("Address::Phone can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::Phone can't be set to just special characters");
+			}
+		}
+		
+		private function TestPhoneOK(){
+			$this->Address->setPhone("1234512345");
+			
+			if($this->Address->getPhone() == "1234512345"){
+				$this->AddMessageSuccess("Address::Phone can be set to '1234512345'");
+			} else {
+				$this->AddMessageFailed("Address::Phone can't be set to '1234512345'");
+			}
+
+			$this->Address->setPhone("+49 2345 12345");
+				
+			if($this->Address->getPhone() == "+49 2345 12345"){
+				$this->AddMessageSuccess("Address::Phone can be set to '+49 2345 12345'");
+			} else {
+				$this->AddMessageFailed("Address::Phone can't be set to '+49 2345 12345'");
+			}
+			
+			$this->Address->setPhone("");
+			
+			if($this->Address->getPhone() == ""){
+				$this->AddMessageSuccess("Address::Phone can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::Phone can't be set to ''");
+			}
+		}
+		
+		private function TestPhone(){
+			$this->TestPhoneOK();
+			$this->TestPhoneNOK();
+		}
+		
 		public function RunTests(){
 			$this->TestContact();
 			$this->TestStreet();
 			$this->TestZipcode();
 			$this->TestCity();
 			$this->TestFax();
+			$this->TestPhone();
 		}
 		
 		private function AddMessageSuccess($Msg){
@@ -269,43 +311,10 @@
 	$errs = array();
 	$Address = new Address();
 	
-	$Address->setFax("Fax");
 	$Address->setMail("Mail");
-	$Address->setPhone("Phone");
 	$Address->setWeb("Web");
 
 	
-	if($Address->getFax() != ""){
-		$errs[] = "getFax doesn't return expected Value ('' vs. '". $Address->getFax() ."')";
-	} else {
-		$Address->setFax("1234512345");
-		
-		if($Address->getFax() != "1234512345"){
-			$errs[] = "getFax doesn't return expected Value ('1234512345' vs. '". $Address->getFax() ."')";
-		} else {
-			$Address->setFax("+49 2345 12345");
-			
-			if($Address->getFax() != "+49 2345 12345"){
-				$errs[] = "getFax doesn't return expected Value ('+49 2345 12345' vs. '". $Address->getFax() ."')";
-			}
-		}
-	}
-	
-	if($Address->getPhone() != ""){
-		$errs[] = "getPhone doesn't return expected Value ('' vs. '". $Address->getPhone() ."')";
-	} else {
-		$Address->setPhone("1234512345");
-		
-		if($Address->getPhone() != "1234512345"){
-			$errs[] = "getPhone doesn't return expected Value ('1234512345' vs. '". $Address->getPhone() ."')";
-		} else {
-			$Address->setPhone("+49 2345 12345");
-			
-			if($Address->getPhone() != "+49 2345 12345"){
-				$errs[] = "getPhone doesn't return expected Value ('+49 2345 12345' vs. '". $Address->getPhone() ."')";
-			}
-		}
-	}
 	
 	if($Address->getMail() != ""){
 		$errs[] = "getMail doesn't return expected Value ('' vs. '". $Address->getMail() ."')";
