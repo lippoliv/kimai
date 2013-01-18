@@ -385,6 +385,87 @@
 			$this->TestMailNOK();
 		}
 		
+		private function TestWebNOK(){
+			$this->Address->setWeb("*");
+			
+			if($this->Address->getWeb() == "*"){
+				$this->AddMessageFailed("Address::Web can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Address::Web can't be set to just special characters");
+			}
+			
+			$this->Address->setWeb("Web");
+			
+			if($this->Address->getWeb() == "Web"){
+				$this->AddMessageFailed("Address::Web can be set to 'Web'");
+			} else {
+				$this->AddMessageSuccess("Address::Web can't be set to 'Web'");
+			}
+			
+			$this->Address->setWeb("http://");
+			
+			if($this->Address->getWeb() == "http://"){
+				$this->AddMessageFailed("Address::Web can be set to 'http://'");
+			} else {
+				$this->AddMessageSuccess("Address::Web can't be set to 'http://'");
+			}
+			
+			$this->Address->setWeb("http://www");
+			
+			if($this->Address->getWeb() == "http://www"){
+				$this->AddMessageFailed("Address::Web can be set to 'http://www'");
+			} else {
+				$this->AddMessageSuccess("Address::Web can't be set to 'http://www'");
+			}
+			
+			$this->Address->setWeb("http://www.google");
+			
+			if($this->Address->getWeb() == "http://www.google"){
+				$this->AddMessageFailed("Address::Web can be set to 'http://www.google'");
+			} else {
+				$this->AddMessageSuccess("Address::Web can't be set to 'http://www.google'");
+			}
+		}
+		
+		private function TestWebOK(){
+			$this->Address->setWeb("http://www.google.com");
+			
+			if($this->Address->getWeb() == "http://www.google.com"){
+				$this->AddMessageSuccess("Address::Web can be set to 'http://www.google.com'");
+			} else {
+				$this->AddMessageFailed("Address::Web can't be set to 'http://www.google.com'");
+			}
+			
+			$this->Address->setWeb("www.google.com");
+			
+			if($this->Address->getWeb() == "www.google.com"){
+				$this->AddMessageSuccess("Address::Web can be set to 'www.google.com'");
+			} else {
+				$this->AddMessageFailed("Address::Web can't be set to 'www.google.com'");
+			}
+			
+			$this->Address->setWeb("google.com");
+			
+			if($this->Address->getWeb() == "google.com"){
+				$this->AddMessageSuccess("Address::Web can be set to 'google.com'");
+			} else {
+				$this->AddMessageFailed("Address::Web can't be set to 'google.com'");
+			}
+			
+			$this->Address->setWeb("");
+			
+			if($this->Address->getWeb() == ""){
+				$this->AddMessageSuccess("Address::Web can be set to ''");
+			} else {
+				$this->AddMessageFailed("Address::Web can't be set to ''");
+			}
+		}
+		
+		private function TestWeb(){
+			$this->TestWebOK();
+			$this->TestWebNOK();
+		}
+		
 		public function RunTests(){
 			$this->TestContact();
 			$this->TestStreet();
@@ -394,6 +475,7 @@
 			$this->TestPhone();
 			$this->TestMobile();
 			$this->TestMail();
+			$this->TestWeb();
 		}
 		
 		private function AddMessageSuccess($Msg){
@@ -415,48 +497,7 @@
 	
 	$AddressTest = new TestAddress();
 	$AddressTest->RunTests();
-	
-	$errs = array();
-	$Address = new Address();
-	
-	$Address->setMail("Mail");
-	$Address->setWeb("Web");
-
-	
-	
-	if($Address->getWeb() != ""){
-		$errs[] = "getWeb doesn't return expected Value ('' vs. '". $Address->getWeb() ."')";
-	} else {
-		$Address->setWeb("http://www.google.com");
-		
-		if($Address->getWeb() != "http://www.google.com"){
-			$errs[] = "getWeb doesn't return expected Value ('http://www.google.com' vs. '". $Address->getWeb() ."')";
-		} else {
-			$Address->setWeb("");
-			$Address->setWeb("www.google.com");
-			
-			if($Address->getWeb() != "http://www.google.com"){
-				$errs[] = "getWeb doesn't return expected Value ('http://www.google.com' vs. '". $Address->getWeb() ."')";
-			} else {
-				$Address->setWeb("");
-				$Address->setWeb("google.com");
-				
-				if($Address->getWeb() != "http://www.google.com"){
-					$errs[] = "getWeb doesn't return expected Value ('http://www.google.com' vs. '". $Address->getWeb() ."')";
-				}
-			}
-		}
-	}
 ?>
 
 <h2>Checking Address-Object</h2>
 <?php $AddressTest->ShowResults(); ?>
-<?php if(count($errs) > 0): ?>
-	<?php foreach($errs as $err): ?>
-		<p>
-			<?php echo $err; ?>
-		</p>
-	<?php endforeach; ?>
-<?php else: ?>
-	<p>No errors found</p>
-<?php endif; ?>
