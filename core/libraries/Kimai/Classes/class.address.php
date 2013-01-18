@@ -217,7 +217,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setMail($Mail){
-			$this->Mail = $Mail;
+			if(filter_var($Mail, FILTER_VALIDATE_EMAIL)){
+				$this->Mail = $Mail;
+			}
 		}
 		
 		/**
