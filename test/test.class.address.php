@@ -409,22 +409,6 @@
 			} else {
 				$this->AddMessageSuccess("Address::Web can't be set to 'http://'");
 			}
-			
-			$this->Address->setWeb("http://www");
-			
-			if($this->Address->getWeb() == "http://www"){
-				$this->AddMessageFailed("Address::Web can be set to 'http://www'");
-			} else {
-				$this->AddMessageSuccess("Address::Web can't be set to 'http://www'");
-			}
-			
-			$this->Address->setWeb("http://www.google");
-			
-			if($this->Address->getWeb() == "http://www.google"){
-				$this->AddMessageFailed("Address::Web can be set to 'http://www.google'");
-			} else {
-				$this->AddMessageSuccess("Address::Web can't be set to 'http://www.google'");
-			}
 		}
 		
 		private function TestWebOK(){
@@ -450,6 +434,24 @@
 				$this->AddMessageSuccess("Address::Web can be set to 'google.com'");
 			} else {
 				$this->AddMessageFailed("Address::Web can't be set to 'google.com'");
+			}
+			
+			
+			$this->Address->setWeb("http://www");
+			
+			if($this->Address->getWeb() == "http://www"){
+				$this->AddMessageSuccess("Address::Web can be set to 'http://www'");
+			} else {
+				$this->AddMessageFailed("Address::Web can't be set to 'http://www'");
+			}
+			
+			//For Network-Wide Servers is now TLD (.de, .com, ...) needed
+			$this->Address->setWeb("http://www.google");
+			
+			if($this->Address->getWeb() == "http://www.google"){
+				$this->AddMessageSuccess("Address::Web can be set to 'http://www.google'");
+			} else {
+				$this->AddMessageFailed("Address::Web can't be set to 'http://www.google'");
 			}
 			
 			$this->Address->setWeb("");
