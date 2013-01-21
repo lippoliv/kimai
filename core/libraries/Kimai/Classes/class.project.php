@@ -25,6 +25,7 @@
 	class Project{
 		private $ID;
 		private $Name;
+		private $Visible;
 		
 		/**
 		 * Returns the ID of the Project
@@ -69,6 +70,28 @@
 		public function setName($Name){
 			$this->Name = $Name;
 		}
+		
+		/**
+		 * Returns the Visible-State of the Project
+		 *
+		 * @return	boolean	the Visible-State of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function isVisible(){
+			return $this->Visible;
+		}
+		
+		/**
+		 * Defines the Visible-State of the Project
+		 *
+		 * @param	boolean	the Visible-State of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setVisible($Visible){
+			$this->Visible = $Visible;
+		}
 
 		/**
 		 * Returns the stored Project-Information as an HTML-Formated String
@@ -78,7 +101,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."</div>";
 		}
 	}
 ?>
