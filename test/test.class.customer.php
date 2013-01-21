@@ -19,6 +19,11 @@
 	
 	include_once '../core/libraries/Kimai/Classes/class.address.php';
 	
+	/**
+	 * Does all Tests for the Customer-Object
+	 * 
+	 * @author	Oliver Lippert
+	 */
 	class TestCustomer{
 		private $Messages = array();
 		private $Customer;
