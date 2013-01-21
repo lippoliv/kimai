@@ -62,7 +62,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setID($ID){
-			$this->ID = $ID;
+			if(is_int($ID)){
+				$this->ID = $ID;
+			}
 		}
 		
 		/**
