@@ -230,6 +230,52 @@
 		}
 		
 		/**
+		 * Runs all negative-tests for the Company-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestCompanyNOK(){
+		}
+		
+		/**
+		 * Runs all positive-tests for the Company-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestCompanyOK(){
+			$this->Customer->setCompany("Company");
+			if($this->Customer->getCompany() == "Company"){
+				$this->AddMessageSuccess("Customer::Company can be set to 'Company'");
+			} else {
+				$this->AddMessageFailed("Customer::Company can't be set to 'Company'");
+			}
+			
+			$this->Customer->setCompany("123");
+			if($this->Customer->getCompany() == "123"){
+				$this->AddMessageSuccess("Customer::Company can be set to '123'");
+			} else {
+				$this->AddMessageFailed("Customer::Company can't be set to '123'");
+			}
+			
+			$this->Customer->setCompany("");
+			if($this->Customer->getCompany() == ""){
+				$this->AddMessageSuccess("Customer::Company can be set to ''");
+			} else {
+				$this->AddMessageFailed("Customer::Company can't be set to ''");
+			}
+		}
+		
+		/**
+		 * Runs all tests for the Company-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestCompany(){
+			$this->TestCompanyOK();
+			$this->TestCompanyNOK();
+		}
+		
+		/**
 		 * Runs all tests for the Customer-Object
 		 *
 		 * @author	Oliver Lippert
@@ -239,6 +285,7 @@
 			$this->TestName();
 			$this->TestComment();
 			$this->TestVisible();
+			$this->TestCompany();
 		}
 		
 		/**
