@@ -274,6 +274,51 @@
 			$this->TestCompanyOK();
 			$this->TestCompanyNOK();
 		}
+
+		/**
+		 * Runs all negative-tests for the Address-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestAddressNOK(){
+			$this->Customer->setAdress("Address");
+			if($this->Customer->getAdress() == "Address"){
+				$this->AddMessageFailed("Customer::Address can be set to 'Address'");
+			} else {
+				$this->AddMessageSuccess("Customer::Address can't be set to 'Address'");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the Address-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestAddressOK(){
+			$this->Customer->setAdress(new Address());
+			if($this->Customer->getAdress() instanceof Address){
+				$this->AddMessageSuccess("Customer::Address can be set to Address-Object");
+			} else {
+				$this->AddMessageFailed("Customer::Address can't be set to Address-Object");
+			}
+			
+			$this->Customer->setAdress(null);
+			if($this->Customer->getAdress() == null){
+				$this->AddMessageSuccess("Customer::Address can be set to null");
+			} else {
+				$this->AddMessageFailed("Customer::Address can't be set to null");
+			}
+		}
+		
+		/**
+		 * Runs all tests for the Address-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestAddress(){
+			$this->TestAddressOK();
+			$this->TestAddressNOK();
+		}
 		
 		/**
 		 * Runs all tests for the Customer-Object
@@ -286,6 +331,7 @@
 			$this->TestComment();
 			$this->TestVisible();
 			$this->TestCompany();
+			$this->TestAddress();
 		}
 		
 		/**
