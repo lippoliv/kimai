@@ -112,6 +112,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
   }
 
   	/**
+  	 * Loads all Customers from the Database an returns them as Customer-Objects
   	 * 
   	 * @return 	boolean|Array	false or an Array of Customer-Instances
   	 * 
@@ -2259,6 +2260,46 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 
       return $arr;
   }
+  
+	/**
+	 * Loads all Projects from the Database an returns them as Project-Objects
+	 * 
+	 * @return	Array	the array of Project-Instances
+	 */
+	public function getProjects() {
+		$p = $this->kga['server_prefix'];
+		
+		$query = "SELECT project.*, customer.name AS customerName
+			FROM ${p}projects AS project
+			JOIN ${p}customers AS customer USING(customerID)";
+		
+		$this->conn->Query($query);
+		  
+		$arr = array();
+		$i=0;
+		  
+		$this->conn->MoveFirst();
+		while(!$this->conn->EndOfSeek()){
+			$row = $this->conn->Row();
+			$Project = new Project();
+			/*
+			$arr[$i]['projectID']    = $row->projectID;
+			$arr[$i]['name']         = $row->name;
+			$arr[$i]['customerName'] = $row->customerName;
+			$arr[$i]['customerID']   = $row->customerID;
+			$arr[$i]['visible']      = $row->visible;
+			$arr[$i]['budget']       = $row->budget;
+			$arr[$i]['effort']       = $row->effort;
+			$arr[$i]['approved']     = $row->approved;
+			*/
+			
+			$Project->setID($row->projectID);
+			
+			$arr[] = $Project;
+		}
+		
+		return $arr;
+	}
 
   /**
   *  Creates an array of clauses which can be joined together in the WHERE part
