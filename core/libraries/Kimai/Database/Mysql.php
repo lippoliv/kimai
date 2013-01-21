@@ -2294,6 +2294,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			*/
 			
 			$Project->setID($row->projectID);
+			$Project->setName($row->name);
 			
 			$arr[] = $Project;
 		}

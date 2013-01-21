@@ -24,6 +24,7 @@
 	 */
 	class Project{
 		private $ID;
+		private $Name;
 		
 		/**
 		 * Returns the ID of the Project
@@ -46,6 +47,28 @@
 		public function setID($ID){
 			$this->ID = $ID;
 		}
+		
+		/**
+		 * Returns the Name of the Project
+		 *
+		 * @return	string	the Project-Name
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getName(){
+			return $this->Name;
+		}
+		
+		/**
+		 * Defines the Name of the Project
+		 *
+		 * @param	string	the Project-Name
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setName($Name){
+			$this->Name = $Name;
+		}
 
 		/**
 		 * Returns the stored Project-Information as an HTML-Formated String
@@ -55,7 +78,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."</div>";
 		}
 	}
 ?>
