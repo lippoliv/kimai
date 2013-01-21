@@ -26,15 +26,53 @@
 		public function __construct(){
 			$this->Customer = new Customer(false);
 		}
+		
+		public function TestIDNOK(){
+			$this->Customer->setID("*?");
+			if($this->Customer->getID() == "*?"){
+				$this->AddMessageFailed("Customer::ID can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Customer::ID can't be set to just special characters");
+			}
+			
+			$this->Customer->setID("hannes");
+			if($this->Customer->getID() == "hannes"){
+				$this->AddMessageFailed("Customer::ID can be set to 'hannes'");
+			} else {
+				$this->AddMessageSuccess("Customer::ID can't be set to 'hannes'");
+			}
+		}
 
+		public function TestIDOK(){
+			$this->Customer->setID("1");
+			if($this->Customer->getID() == "1"){
+				$this->AddMessageSuccess("Customer::ID can be set to '1'");
+			} else {
+				$this->AddMessageFailed("Customer::ID can't be set to '1'");
+			}
+
+			$this->Customer->setID("");
+			if($this->Customer->getID() == ""){
+				$this->AddMessageSuccess("Customer::ID can be set to ''");
+			} else {
+				$this->AddMessageFailed("Customer::ID can't be set to ''");
+			}
+		}
+		
+		public function TestID(){
+			$this->TestIDOK();
+			$this->TestIDNOK();
+		}
+		
 		/**
 		 * Runs all tests for the Customer-Object
 		 *
 		 * @author	Oliver Lippert
 		 */
 		public function RunTests(){
+			$this->TestID();
 		}
-
+		
 		/**
 		 * Adds an Success-Message to the output
 		 *
