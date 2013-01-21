@@ -154,7 +154,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setCompany($Company){
-			$this->Comment = $Company;
+			$this->Company = $Company;
 		}
 		
 		/**
