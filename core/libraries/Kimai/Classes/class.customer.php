@@ -224,7 +224,7 @@
 		 * @return	string	all Customer-Propertys
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />COMPANY ". $this->getCompany() ."<br />COMMENT ". $this->getComment() ."<br />VISIBLE ". $this->isVisible() ."<br />DELETED ". $this->isDeleted() ."<br>ADRESS ". $this->getAdress()->toString() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />COMPANY ". $this->getCompany() ."<br />COMMENT ". $this->getComment() ."<br />VISIBLE ". $this->isVisible() ."<br />DELETED ". $this->isDeleted() ."<br>ADRESS ". $this->getAddress()->toString() ."</div>";
 		}
 	}
 ?>

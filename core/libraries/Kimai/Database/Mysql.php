@@ -21,6 +21,7 @@ include(WEBROOT.'libraries/mysql.class.php');
 
 include_once WEBROOT.'libraries/Kimai/Classes/class.customer.php';
 include_once WEBROOT.'libraries/Kimai/Classes/class.address.php';
+include_once WEBROOT.'libraries/Kimai/Classes/class.project.php';
 
 /**
  * Provides the database layer for MySQL.
@@ -140,12 +141,12 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 				$address->setZipcode($row['zipcode']);
 				
 				$customer = new Customer($row['trash']);
-				$customer->setID($row['customerID']);
+				$customer->setID(intval($row['customerID']));
 				$customer->setComment($row['comment']);
 				$customer->setCompany($row['company']);
 				$customer->setName($row['name']);
 				$customer->setVisible($row['visible']);
-				$customer->setAdress($address);
+				$customer->setAddress($address);
 				
 				$retValue[] = $customer;
 			}
