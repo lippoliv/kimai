@@ -185,6 +185,51 @@
 		}
 		
 		/**
+		 * Runs all negative-tests for the Visible-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestVisibleNOK(){
+			$this->Customer->setVisible("test");
+			if($this->Customer->isVisible() == "test"){
+				$this->AddMessageFailed("Customer::Visible can be set to 'test'");
+			} else {
+				$this->AddMessageSuccess("Customer::Visible can't be set to 'test'");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the Visible-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestVisibleOK(){
+			$this->Customer->setVisible(true);
+			if($this->Customer->isVisible()){
+				$this->AddMessageSuccess("Customer::Visible can be set to 'true'");
+			} else {
+				$this->AddMessageFailed("Customer::Visible can't be set to 'true'");
+			}
+			
+			$this->Customer->setVisible(false);
+			if(!$this->Customer->isVisible()){
+				$this->AddMessageSuccess("Customer::Visible can be set to 'false'");
+			} else {
+				$this->AddMessageFailed("Customer::Visible can't be set to 'false'");
+			}
+		}
+
+		/**
+		 * Runs all tests for the Visible-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestVisible(){
+			$this->TestVisibleOK();
+			$this->TestVisibleNOK();
+		}
+		
+		/**
 		 * Runs all tests for the Customer-Object
 		 *
 		 * @author	Oliver Lippert
@@ -193,6 +238,7 @@
 			$this->TestID();
 			$this->TestName();
 			$this->TestComment();
+			$this->TestVisible();
 		}
 		
 		/**
