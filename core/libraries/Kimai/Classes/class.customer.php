@@ -30,7 +30,7 @@
 		private $Visible;
 		private $Company;
 		private $Deleted;
-		private $Adress;
+		private $Address;
 		
 		/**
 		 * Initializes the Object-Instance
@@ -201,8 +201,8 @@
 		 * 
 		 * @author	Oliver Lippert
 		 */
-		public function getAdress(){
-			return $this->Adress;
+		public function getAddress(){
+			return $this->Address;
 		}
 		
 		/**
@@ -212,8 +212,10 @@
 		 * 
 		 * @author	Oliver Lippert
 		 */
-		public function setAdress($Adress){
-			$this->Adress = $Adress;
+		public function setAddress($Address){
+			if($Address instanceof Address){
+				$this->Address = $Address;
+			}
 		}
 		
 		/**

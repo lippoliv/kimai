@@ -281,8 +281,8 @@
 		 * @author	Oliver Lippert
 		 */
 		public function TestAddressNOK(){
-			$this->Customer->setAdress("Address");
-			if($this->Customer->getAdress() == "Address"){
+			$this->Customer->setAddress("Address");
+			if($this->Customer->getAddress() == "Address"){
 				$this->AddMessageFailed("Customer::Address can be set to 'Address'");
 			} else {
 				$this->AddMessageSuccess("Customer::Address can't be set to 'Address'");
@@ -295,15 +295,15 @@
 		 * @author	Oliver Lippert
 		 */
 		public function TestAddressOK(){
-			$this->Customer->setAdress(new Address());
-			if($this->Customer->getAdress() instanceof Address){
+			$this->Customer->setAddress(new Address());
+			if($this->Customer->getAddress() instanceof Address){
 				$this->AddMessageSuccess("Customer::Address can be set to Address-Object");
 			} else {
 				$this->AddMessageFailed("Customer::Address can't be set to Address-Object");
 			}
 			
-			$this->Customer->setAdress(null);
-			if($this->Customer->getAdress() == null){
+			$this->Customer->setAddress(null);
+			if($this->Customer->getAddress() == null){
 				$this->AddMessageSuccess("Customer::Address can be set to null");
 			} else {
 				$this->AddMessageFailed("Customer::Address can't be set to null");
