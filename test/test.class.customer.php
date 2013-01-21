@@ -27,6 +27,11 @@
 			$this->Customer = new Customer(false);
 		}
 		
+		/**
+		 * Runs all negative-tests for the ID-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function TestIDNOK(){
 			$this->Customer->setID("*?");
 			if($this->Customer->getID() == "*?"){
@@ -42,7 +47,12 @@
 				$this->AddMessageSuccess("Customer::ID can't be set to 'hannes'");
 			}
 		}
-
+		
+		/**
+		 * Runs all positive-tests for the ID-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function TestIDOK(){
 			$this->Customer->setID("1");
 			if($this->Customer->getID() == "1"){
@@ -59,6 +69,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the ID-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function TestID(){
 			$this->TestIDOK();
 			$this->TestIDNOK();
