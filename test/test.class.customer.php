@@ -80,12 +80,65 @@
 		}
 		
 		/**
+		 * Runs all negative-tests for the Name-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestNameNOK(){
+			$this->Customer->setName("*?");
+			if($this->Customer->getName() == "*?"){
+				$this->AddMessageFailed("Customer::Name can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Customer::Name can't be set to just special characters");
+			}
+		}
+		
+		/**
+		 * Runs all positive-tests for the Name-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestNameOK(){
+			$this->Customer->setName("Name");
+			if($this->Customer->getName() == "Name"){
+				$this->AddMessageSuccess("Customer::Name can be set to 'Name'");
+			} else {
+				$this->AddMessageFailed("Customer::Name can't be set to 'Name'");
+			}
+
+			$this->Customer->setName("Name Name");
+			if($this->Customer->getName() == "Name Name"){
+				$this->AddMessageSuccess("Customer::Name can be set to 'Name Name'");
+			} else {
+				$this->AddMessageFailed("Customer::Name can't be set to 'Name Name'");
+			}
+
+			$this->Customer->setName("");
+			if($this->Customer->getName() == ""){
+				$this->AddMessageSuccess("Customer::Name can be set to ''");
+			} else {
+				$this->AddMessageFailed("Customer::Name can't be set to ''");
+			}
+		}
+		
+		/**
+		 * Runs all tests for the Name-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestName(){
+			$this->TestNameOK();
+			$this->TestNameNOK();
+		}
+		
+		/**
 		 * Runs all tests for the Customer-Object
 		 *
 		 * @author	Oliver Lippert
 		 */
 		public function RunTests(){
 			$this->TestID();
+			$this->TestName();
 		}
 		
 		/**
