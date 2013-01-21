@@ -25,16 +25,37 @@
 	class Project{
 		private $ID;
 		
+		/**
+		 * Returns the ID of the Project
+		 *
+		 * @return	double	the Project-ID
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function getID(){
 			return $this->ID;
 		}
 		
+		/**
+		 * Defines the ID of the Project
+		 *
+		 * @param	double	the Project-ID
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function setID($ID){
 			$this->ID = $ID;
 		}
-		
+
+		/**
+		 * Returns the stored Project-Information as an HTML-Formated String
+		 *
+		 * @return	string	the Project-Information
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function toString(){
-			return "<div>". $this->getID() ."</div>";
+			return "<div>#". $this->getID() ."</div>";
 		}
 	}
 ?>
