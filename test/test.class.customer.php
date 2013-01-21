@@ -132,6 +132,59 @@
 		}
 		
 		/**
+		 * Runs all negative-tests for the Comment-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestCommentNOK(){
+		}
+		
+		/**
+		 * Runs all positive-tests for the Comment-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestCommentOK(){
+			$this->Customer->setComment("Comment");
+			if($this->Customer->getComment() == "Comment"){
+				$this->AddMessageSuccess("Customer::Comment can be set to 'Comment'");
+			} else {
+				$this->AddMessageFailed("Customer::Comment can't be set to 'Comment'");
+			}
+			
+			$this->Customer->setComment("Comment Comment");
+			if($this->Customer->getComment() == "Comment Comment"){
+				$this->AddMessageSuccess("Customer::Comment can be set to 'Comment Comment'");
+			} else {
+				$this->AddMessageFailed("Customer::Comment can't be set to 'Comment Comment'");
+			}
+			
+			$this->Customer->setComment("123456789");
+			if($this->Customer->getComment() == "123456789"){
+				$this->AddMessageSuccess("Customer::Comment can be set to '123456789'");
+			} else {
+				$this->AddMessageFailed("Customer::Comment can't be set to '123456789'");
+			}
+			
+			$this->Customer->setComment("");
+			if($this->Customer->getComment() == ""){
+				$this->AddMessageSuccess("Customer::Comment can be set to ''");
+			} else {
+				$this->AddMessageFailed("Customer::Comment can't be set to ''");
+			}
+		}
+		
+		/**
+		 * Runs all tests for the Comment-Property of the Customer-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestComment(){
+			$this->TestCommentOK();
+			$this->TestCommentNOK();
+		}
+		
+		/**
 		 * Runs all tests for the Customer-Object
 		 *
 		 * @author	Oliver Lippert
@@ -139,6 +192,7 @@
 		public function RunTests(){
 			$this->TestID();
 			$this->TestName();
+			$this->TestComment();
 		}
 		
 		/**
