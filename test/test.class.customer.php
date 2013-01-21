@@ -54,18 +54,18 @@
 		 * @author	Oliver Lippert
 		 */
 		public function TestIDOK(){
-			$this->Customer->setID("1");
-			if($this->Customer->getID() == "1"){
-				$this->AddMessageSuccess("Customer::ID can be set to '1'");
+			$this->Customer->setID(1);
+			if($this->Customer->getID() == 1){
+				$this->AddMessageSuccess("Customer::ID can be set to 1");
 			} else {
-				$this->AddMessageFailed("Customer::ID can't be set to '1'");
+				$this->AddMessageFailed("Customer::ID can't be set to 1");
 			}
 
-			$this->Customer->setID("");
-			if($this->Customer->getID() == ""){
-				$this->AddMessageSuccess("Customer::ID can be set to ''");
+			$this->Customer->setID(-1);
+			if($this->Customer->getID() == -1){
+				$this->AddMessageSuccess("Customer::ID can be set to -1");
 			} else {
-				$this->AddMessageFailed("Customer::ID can't be set to ''");
+				$this->AddMessageFailed("Customer::ID can't be set to -1");
 			}
 		}
 		
