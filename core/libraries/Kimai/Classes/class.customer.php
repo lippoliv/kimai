@@ -213,7 +213,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setAddress($Address){
-			if($Address instanceof Address){
+			if($Address instanceof Address || $Address == null){
 				$this->Address = $Address;
 			}
 		}
