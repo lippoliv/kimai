@@ -26,6 +26,7 @@
 		private $ID;
 		private $Name;
 		private $Visible;
+		private $Budget;
 		
 		/**
 		 * Returns the ID of the Project
@@ -92,6 +93,28 @@
 		public function setVisible($Visible){
 			$this->Visible = $Visible;
 		}
+		
+		/**
+		 * Returns the Budget of the Project
+		 *
+		 * @return	double	the Budget of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getBudget(){
+			return $this->Budget;
+		}
+		
+		/**
+		 * Defines the Budget of the Project
+		 *
+		 * @param	doble	the Budget of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setBudget($Budget){
+			$this->Budget = $Budget;
+		}
 
 		/**
 		 * Returns the stored Project-Information as an HTML-Formated String
@@ -101,7 +124,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />BUDGET ". $this->getBudget() ."</div>";
 		}
 	}
 ?>

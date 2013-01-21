@@ -2285,7 +2285,6 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			/*
 			$arr[$i]['customerName'] = $row->customerName;
 			$arr[$i]['customerID']   = $row->customerID;
-			$arr[$i]['budget']       = $row->budget;
 			$arr[$i]['effort']       = $row->effort;
 			$arr[$i]['approved']     = $row->approved;
 			*/
@@ -2293,6 +2292,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			$Project->setID($row->projectID);
 			$Project->setName($row->name);
 			$Project->setVisible($row->visible);
+			$Project->setBudget($row->budget);
 			
 			$arr[] = $Project;
 		}
