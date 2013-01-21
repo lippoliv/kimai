@@ -28,6 +28,7 @@
 		private $Visible;
 		private $Budget;
 		private $Effort;
+		private $Approved;
 		
 		/**
 		 * Returns the ID of the Project
@@ -138,7 +139,28 @@
 		public function setEffort($Effort){
 			$this->Effort = $Effort;
 		}
+
+		/**
+		 * Returns the Approved of the Project
+		 *
+		 * @return	double	the Approved of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getApproved(){
+			return $this->Approved;
+		}
 		
+		/**
+		 * Defines the Approved of the Project
+		 *
+		 * @param	double	the Approved of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setApproved($Approved){
+			$this->Approved = $Approved;
+		}
 
 		/**
 		 * Returns the stored Project-Information as an HTML-Formated String
@@ -148,7 +170,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />BUDGET ". $this->getBudget() ."<br />EFFORT ". $this->getEffort() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />BUDGET ". $this->getBudget() ."<br />EFFORT ". $this->getEffort() ."<br />APPROVED ". $this->getApproved() ."</div>";
 		}
 	}
 ?>

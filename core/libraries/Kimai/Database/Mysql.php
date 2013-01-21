@@ -2282,10 +2282,10 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		while(!$this->conn->EndOfSeek()){
 			$row = $this->conn->Row();
 			$Project = new Project();
+			
 			/*
 			$arr[$i]['customerName'] = $row->customerName;
 			$arr[$i]['customerID']   = $row->customerID;
-			$arr[$i]['approved']     = $row->approved;
 			*/
 			
 			$Project->setID($row->projectID);
@@ -2293,6 +2293,9 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			$Project->setVisible($row->visible);
 			$Project->setBudget($row->budget);
 			$Project->setEffort($row->effort);
+			$Project->setApproved($row->approved);
+			
+			//TODO: set the project-owning customer
 			
 			$arr[] = $Project;
 		}
