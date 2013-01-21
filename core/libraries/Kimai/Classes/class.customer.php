@@ -130,7 +130,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setVisible($Visible){
-			$this->Visible = $Visible;
+			if(is_bool($Visible)){
+				$this->Visible = $Visible;
+			}
 		}
 		
 		/**
