@@ -1,6 +1,29 @@
 <?php
+	/**
+	 * This file is part of
+	 * Kimai - Open Source Time Tracking // http://www.kimai.org
+	 * (c) 2006-2013 Kimai-Development-Team
+	 *
+	 * Kimai is free software; you can redistribute it and/or modify
+	 * it under the terms of the GNU General Public License as published by
+	 * the Free Software Foundation; Version 3, 29 June 2007
+	 *
+	 * Kimai is distributed in the hope that it will be useful,
+	 * but WITHOUT ANY WARRANTY; without even the implied warranty of
+	 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	 * GNU General Public License for more details.
+	 *
+	 * You should have received a copy of the GNU General Public License
+	 * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
+	 */
+	
 	include_once '../core/libraries/Kimai/Classes/class.address.php';
 	
+	/**
+	 * Runs all Tests for the Address-Object
+	 * 
+	 * @author	Oliver Lippert
+	 */
 	class TestAddress{
 		private $Messages = array();
 		private $Address;
@@ -9,6 +32,11 @@
 			$this->Address = new Address();
 		}
 		
+		/**
+		 * Runs all negative-tests for the City-Property of the Address-Object
+		 * 
+		 * @author	Oliver Lippert
+		 */
 		private function TestCityNOK(){
 			$this->Address->setCity("*");
 			
@@ -19,6 +47,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the City-Property of the Address-Object
+		 * 
+		 * @author	Oliver Lippert
+		 */
 		private function TestCityOK(){
 			$this->Address->setCity("City");
 			
@@ -37,11 +70,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the City-Property of the Address-Object
+		 * 
+		 * @author	Oliver Lippert
+		 */
 		private function TestCity(){
 			$this->TestCityOK();
 			$this->TestCityNOK();
 		}
 		
+		/**
+		 * Runs all negative-tests for the Contact-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestContactNOK(){
 			$this->Address->setContact("*");
 				
@@ -52,6 +95,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the Contact-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestContactOK(){
 			$this->Address->setContact("Contact");
 			
@@ -78,11 +126,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the Contact-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestContact(){
 			$this->TestContactOK();
 			$this->TestContactNOK();
 		}
 		
+		/**
+		 * Runs all negative-tests for the Street-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestStreetNOK(){
 			$this->Address->setStreet("*");
 			
@@ -93,6 +151,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the Street-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestStreetOK(){
 			$this->Address->setStreet("Street");
 			
@@ -127,11 +190,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the Street-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestStreet(){
 			$this->TestStreetOK();
 			$this->TestStreetNOK();
 		}
 		
+		/**
+		 * Runs all negative-tests for the Zipcode-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestZipcodeNOK(){
 			$this->Address->setZipcode("*");
 			
@@ -158,6 +231,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the Zipcode-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestZipcodeOK(){
 			$this->Address->setZipcode("00001");
 			
@@ -176,11 +254,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the Zipcode-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestZipcode(){
 			$this->TestZipcodeOK();
 			$this->TestZipcodeNOK();
 		}
 		
+		/**
+		 * Runs all negative-tests for the Fax-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestFaxNOK(){
 			$this->Address->setFax("*");
 			
@@ -207,6 +295,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the Fax-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestFaxOK(){
 			$this->Address->setFax("1234512345");
 			
@@ -233,11 +326,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the Fax-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestFax(){
 			$this->TestFaxOK();
 			$this->TestFaxNOK();
 		}
 		
+		/**
+		 * Runs all negative-tests for the Phone-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestPhoneNOK(){
 			$this->Address->setPhone("*");
 				
@@ -248,6 +351,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the Phone-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestPhoneOK(){
 			$this->Address->setPhone("1234512345");
 			
@@ -274,11 +382,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the Phone-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestPhone(){
 			$this->TestPhoneOK();
 			$this->TestPhoneNOK();
 		}
 		
+		/**
+		 * Runs all negative-tests for the Mobile-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestMobileNOK(){
 			$this->Address->setMobile("*");
 				
@@ -297,6 +415,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the Mobile-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestMobileOK(){
 			$this->Address->setMobile("1234512345");
 			
@@ -323,11 +446,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the Mobile-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestMobile(){
 			$this->TestMobileOK();
 			$this->TestMobileNOK();
 		}
 		
+		/**
+		 * Runs all negative-tests for the Mail-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestMailNOK(){
 			$this->Address->setMail("*");
 			
@@ -362,6 +495,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the Mail-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestMailOK(){
 			$this->Address->setMail("mail@mail.com");
 			
@@ -380,11 +518,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the Mail-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestMail(){
 			$this->TestMailOK();
 			$this->TestMailNOK();
 		}
 		
+		/**
+		 * Runs all negative-tests for the Web-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestWebNOK(){
 			$this->Address->setWeb("*");
 			
@@ -411,6 +559,11 @@
 			}
 		}
 		
+		/**
+		 * Runs all positive-tests for the Web-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestWebOK(){
 			$this->Address->setWeb("http://www.google.com");
 			
@@ -463,11 +616,21 @@
 			}
 		}
 		
+		/**
+		 * Runs all tests for the Web-Property of the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function TestWeb(){
 			$this->TestWebOK();
 			$this->TestWebNOK();
 		}
 		
+		/**
+		 * Runs all tests for the Address-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function RunTests(){
 			$this->TestContact();
 			$this->TestStreet();
@@ -480,14 +643,33 @@
 			$this->TestWeb();
 		}
 		
+		/**
+		 * Adds an Success-Message to the output
+		 * 
+		 * @param	String	the Success-Message
+		 * 
+		 * @author	Oliver Lippert
+		 */
 		private function AddMessageSuccess($Msg){
 			$this->Messages[] = array($Msg, "green");
 		}
 		
+		/**
+		 * Adds an Fail-Message to the output
+		 *
+		 * @param	String	the Fail-Message
+		 *
+		 * @author	Oliver Lippert
+		 */
 		private function AddMessageFailed($Msg){
 			$this->Messages[] = array($Msg, "red");
 		}
 		
+		/**
+		 * Print's out all the Messages, which where added through the Tests
+		 * 
+		 * @author	Oliver Lippert
+		 */
 		public function ShowResults(){
 			foreach($this->Messages as $Message){
 				echo "<p style='color:". $Message[1] ."'>";
