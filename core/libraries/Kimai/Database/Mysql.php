@@ -128,25 +128,25 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			$this->logLastError('getCustomers');
 		} else {
 			for($i = 0; $i < $this->conn->RowCount(); $i++){
-				$row = $this->conn->RowArray($i, MYSQL_ASSOC);
+				$row = $this->conn->Row();
 				
 				$address = new Address();
-				$address->setCity($row['city']);
-				$address->setContact($row['contact']);
-				$address->setFax($row['fax']);
-				$address->setMail($row['mail']);
-				$address->setMobile($row['mobile']);
-				$address->setPhone($row['phone']);
-				$address->setStreet($row['street']);
-				$address->setWeb($row['homepage']);
-				$address->setZipcode($row['zipcode']);
+				$address->setCity($row->city);
+				$address->setContact($row->contact);
+				$address->setFax($row->fax);
+				$address->setMail($row->mail);
+				$address->setMobile($row->mobile);
+				$address->setPhone($row->phone);
+				$address->setStreet($row->street);
+				$address->setWeb($row->homepage);
+				$address->setZipcode($row->zipcode);
 				
-				$customer = new Customer($row['trash']);
-				$customer->setID(intval($row['customerID']));
-				$customer->setComment($row['comment']);
-				$customer->setCompany($row['company']);
-				$customer->setName($row['name']);
-				$customer->setVisible($row['visible']);
+				$customer = new Customer($row->trash);
+				$customer->setID(intval($row->customerID));
+				$customer->setComment($row->comment);
+				$customer->setCompany($row->company);
+				$customer->setName($row->name);
+				$customer->setVisible((bool) $row->visible);
 				$customer->setAddress($address);
 				
 				$retValue[] = $customer;
