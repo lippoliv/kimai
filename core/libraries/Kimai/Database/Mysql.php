@@ -2331,11 +2331,15 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		if(!$result){
 			$this->logLastError('getProjects');
 		} else {
-			while(!$this->conn->EndOfSeek()){
-				$row = $this->conn->Row();
-		
-				$Project = new Project();
+			$rows = array();
 			
+			while(!$this->conn->EndOfSeek()){
+				$rows[] = $this->conn->Row();
+			}
+			
+			foreach($rows as $row) {
+				$Project = new Project();
+				
 				$Project->setID((double) $row->projectID);
 				$Project->setName($row->name);
 				$Project->setVisible((bool) $row->visible);
