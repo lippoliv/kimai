@@ -262,14 +262,14 @@
 		 */
 		private function TestEffortNOK(){
 			$this->Project->setEffort("test");
-			if($this->Project->getEffort() == "test"){
+			if(((string) $this->Project->getEffort()) == "test"){
 				$this->AddMessageFailed("Project::Effort can be set to 'test'");
 			} else {
 				$this->AddMessageSuccess("Project::Effort can't be set to 'test'");
 			}
 
 			$this->Project->setEffort("");
-			if($this->Project->getEffort() == ""){
+			if(((string) $this->Project->getEffort()) == ""){
 				$this->AddMessageFailed("Project::Effort can be set to ''");
 			} else {
 				$this->AddMessageSuccess("Project::Effort can't be set to ''");
@@ -335,14 +335,14 @@
 		 */
 		private function TestApprovedNOK(){
 			$this->Project->setApproved("test");
-			if($this->Project->getApproved() == "test"){
+			if(((string) $this->Project->getApproved()) == "test"){
 				$this->AddMessageFailed("Project::Approved can be set to 'test'");
 			} else {
 				$this->AddMessageSuccess("Project::Approved can't be set to 'test'");
 			}
 
 			$this->Project->setApproved("");
-			if($this->Project->getApproved() == ""){
+			if(((string) $this->Project->getApproved()) == ""){
 				$this->AddMessageFailed("Project::Approved can be set to ''");
 			} else {
 				$this->AddMessageSuccess("Project::Approved can't be set to ''");
