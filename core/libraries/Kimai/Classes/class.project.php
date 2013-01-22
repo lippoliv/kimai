@@ -170,7 +170,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setApproved($Approved){
-			$this->Approved = $Approved;
+			if(is_double($Approved) || is_int($Approved)){
+				$this->Approved = $Approved;
+			}
 		}
 
 		/**
