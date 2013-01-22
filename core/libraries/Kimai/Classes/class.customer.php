@@ -35,7 +35,7 @@
 		/**
 		 * Initializes the Object-Instance
 		 * 
-		 * @param	bool	the Deletion-State of the Customer
+		 * @param	bool $Deleted	the Deletion-State of the Customer
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -57,7 +57,7 @@
 		/**
 		 * Defines the ID of the Customer
 		 * 
-		 * @param	String	the new Customer-ID
+		 * @param	double $ID	the new Customer-ID
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -81,7 +81,7 @@
 		/**
 		 * Defines the Name of the Customer
 		 * 
-		 * @param	String	the new Customer-Name
+		 * @param	string $Name	the new Customer-Name
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -103,7 +103,7 @@
 		/**
 		 * Defines the Comment for the Customer
 		 * 
-		 * @param	String	the Customer-Comment
+		 * @param	string $Comment	the Customer-Comment
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -125,7 +125,7 @@
 		/**
 		 * Defines the Visibility-State of the Customer
 		 * 
-		 * @param	bool	the Customer-Visibility-State
+		 * @param	bool $Visible	the Customer-Visibility-State
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -149,7 +149,7 @@
 		/**
 		 * Defines the Company of the Customer
 		 * 
-		 * @param	String	the Cusomer-Company
+		 * @param	string $Company	the Cusomer-Company
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -208,7 +208,7 @@
 		/**
 		 * Defines the Adress of the Customer
 		 * 
-		 * @param	Adress	the Customers Adress
+		 * @param	Address $Address	the Customers Adress
 		 * 
 		 * @author	Oliver Lippert
 		 */

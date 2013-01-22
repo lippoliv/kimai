@@ -47,7 +47,7 @@
 		/**
 		 * Defines the Contact-Name
 		 * 
-		 * @param	string	the Contact-Name
+		 * @param	string $Contact	the Contact-Name
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -69,7 +69,7 @@
 		/**
 		 * Defines the Street-Name of the Address
 		 * 
-		 * @param	string	the Street-Name
+		 * @param	string $Street	the Street-Name
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -91,7 +91,7 @@
 		/**
 		 * Defines the ZIP-Code of the Address
 		 * 
-		 * @param	string	the ZIP-Code
+		 * @param	string $ZIP	the ZIP-Code
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -115,7 +115,7 @@
 		/**
 		 * Defines the City of the Address
 		 * 
-		 * @param	string	the City
+		 * @param	string $City	the City
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -137,7 +137,7 @@
 		/**
 		 * Defines the Phone-Number of the Address
 		 * 
-		 * @param	string	the Phone-Number
+		 * @param	string $Phone	the Phone-Number
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -164,7 +164,7 @@
 		/**
 		 * Defines the Fax-Number of the Address
 		 * 
-		 * @param	string	the Fax-Number
+		 * @param	string $Fax	the Fax-Number
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -192,7 +192,7 @@
 		/**
 		 * Defines the Mobile-Number of the Address
 		 * 
-		 * @param	string	the Mobile-Number
+		 * @param	string $Mobile	the Mobile-Number
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -216,7 +216,7 @@
 		/**
 		 * Defines the Mail-Address of the Address
 		 * 
-		 * @param	string	the Mail-Address
+		 * @param	string $Mail	the Mail-Address
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -240,7 +240,7 @@
 		/**
 		 * Defines the Web-Address of the Address
 		 * 
-		 * @param	string	the Web-Address
+		 * @param	string $Web	the Web-Address
 		 * 
 		 * @author	Oliver Lippert
 		 */

@@ -45,7 +45,7 @@
 		/**
 		 * Defines the ID of the Project
 		 *
-		 * @param	double	the Project-ID
+		 * @param	double $ID	the Project-ID
 		 *
 		 * @author	Oliver Lippert
 		 */
@@ -67,7 +67,7 @@
 		/**
 		 * Defines the Name of the Project
 		 *
-		 * @param	string	the Project-Name
+		 * @param	string $Name	the Project-Name
 		 *
 		 * @author	Oliver Lippert
 		 */
@@ -89,7 +89,7 @@
 		/**
 		 * Defines the Visible-State of the Project
 		 *
-		 * @param	boolean	the Visible-State of the Project
+		 * @param	boolean $Visible	the Visible-State of the Project
 		 *
 		 * @author	Oliver Lippert
 		 */
@@ -111,7 +111,7 @@
 		/**
 		 * Defines the Budget of the Project
 		 *
-		 * @param	double	the Budget of the Project
+		 * @param	double $Budget	the Budget of the Project
 		 *
 		 * @author	Oliver Lippert
 		 */
@@ -133,7 +133,7 @@
 		/**
 		 * Defines the Effort of the Project
 		 *
-		 * @param	double	the Effort of the Project
+		 * @param	double $Effort	the Effort of the Project
 		 *
 		 * @author	Oliver Lippert
 		 */
@@ -155,7 +155,7 @@
 		/**
 		 * Defines the Approved of the Project
 		 *
-		 * @param	double	the Approved of the Project
+		 * @param	double $Approved	the Approved of the Project
 		 *
 		 * @author	Oliver Lippert
 		 */
@@ -177,7 +177,7 @@
 		/**
 		 * Defines the Owner of the Project
 		 *
-		 * @param	Customer	the Owner of the Project
+		 * @param	Customer $Owner	the Owner of the Project
 		 *
 		 * @author	Oliver Lippert
 		 */
