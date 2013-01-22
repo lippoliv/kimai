@@ -253,6 +253,79 @@
 			$this->TestBudgetOK();
 			$this->TestBudgetNOK();
 		}
+
+		/**
+		 * Runs all negative-tests for the Effort-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestEffortNOK(){
+			$this->Project->setEffort("test");
+			if($this->Project->getEffort() == "test"){
+				$this->AddMessageFailed("Project::Effort can be set to 'test'");
+			} else {
+				$this->AddMessageSuccess("Project::Effort can't be set to 'test'");
+			}
+
+			$this->Project->setEffort("");
+			if($this->Project->getEffort() == ""){
+				$this->AddMessageFailed("Project::Effort can be set to ''");
+			} else {
+				$this->AddMessageSuccess("Project::Effort can't be set to ''");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the Effort-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestEffortOK(){
+			$this->Project->setEffort(1);
+			if($this->Project->getEffort() == 1){
+				$this->AddMessageSuccess("Project::Effort can be set to 1");
+			} else {
+				$this->AddMessageFailed("Project::Effort can't be set to 1");
+			}
+			
+			$this->Project->setEffort(-1);
+			if($this->Project->getEffort() == -1){
+				$this->AddMessageSuccess("Project::Effort can be set to -1");
+			} else {
+				$this->AddMessageFailed("Project::Effort can't be set to -1");
+			}
+			
+			$this->Project->setEffort(1.25);
+			if($this->Project->getEffort() == 1.25){
+				$this->AddMessageSuccess("Project::Effort can be set to 1.25");
+			} else {
+				$this->AddMessageFailed("Project::Effort can't be set to 1.25");
+			}
+			
+			$this->Project->setEffort(-1.25);
+			if($this->Project->getEffort() == -1.25){
+				$this->AddMessageSuccess("Project::Effort can be set to -1.25");
+			} else {
+				$this->AddMessageFailed("Project::Effort can't be set to -1.25");
+			}
+			
+			$this->Project->setEffort(0);
+			if($this->Project->getEffort() == 0){
+				$this->AddMessageSuccess("Project::Effort can be set to 0");
+			} else {
+				$this->AddMessageFailed("Project::Effort can't be set to 0");
+			}
+		}
+
+		/**
+		 * Runs all tests for the Effort-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestEffort(){
+			$this->TestEffortOK();
+			$this->TestEffortNOK();
+		}
 		
 		/**
 		 * Runs all tests for the Project-Object
@@ -264,6 +337,7 @@
 			$this->TestName();
 			$this->TestVisible();
 			$this->TestBudget();
+			$this->TestEffort();
 		}
 		
 		/**
