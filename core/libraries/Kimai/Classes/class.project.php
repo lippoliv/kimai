@@ -146,7 +146,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setEffort($Effort){
-			$this->Effort = $Effort;
+			if(is_double($Effort) || is_int($Effort)){
+				$this->Effort = $Effort;
+			}
 		}
 
 		/**
