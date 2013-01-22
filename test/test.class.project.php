@@ -37,7 +37,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestIDNOK(){
+		private function TestIDNOK(){
 			$this->Project->setID("*?");
 			if($this->Project->getID() == "*?"){
 				$this->AddMessageFailed("Project::ID can be set to just special characters");
@@ -58,7 +58,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestIDOK(){
+		private function TestIDOK(){
 			$this->Project->setID(1);
 			if($this->Project->getID() == 1){
 				$this->AddMessageSuccess("Project::ID can be set to 1");

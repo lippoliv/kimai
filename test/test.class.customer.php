@@ -37,7 +37,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestIDNOK(){
+		private function TestIDNOK(){
 			$this->Customer->setID("*?");
 			if($this->Customer->getID() == "*?"){
 				$this->AddMessageFailed("Customer::ID can be set to just special characters");
@@ -58,7 +58,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestIDOK(){
+		private function TestIDOK(){
 			$this->Customer->setID(1);
 			if($this->Customer->getID() == 1){
 				$this->AddMessageSuccess("Customer::ID can be set to 1");
@@ -89,7 +89,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestNameNOK(){
+		private function TestNameNOK(){
 			$this->Customer->setName("*?");
 			if($this->Customer->getName() == "*?"){
 				$this->AddMessageFailed("Customer::Name can be set to just special characters");
@@ -103,7 +103,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestNameOK(){
+		private function TestNameOK(){
 			$this->Customer->setName("Name");
 			if($this->Customer->getName() == "Name"){
 				$this->AddMessageSuccess("Customer::Name can be set to 'Name'");
@@ -141,7 +141,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestCommentNOK(){
+		private function TestCommentNOK(){
 		}
 		
 		/**
@@ -149,7 +149,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestCommentOK(){
+		private function TestCommentOK(){
 			$this->Customer->setComment("Comment");
 			if($this->Customer->getComment() == "Comment"){
 				$this->AddMessageSuccess("Customer::Comment can be set to 'Comment'");
@@ -194,7 +194,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestVisibleNOK(){
+		private function TestVisibleNOK(){
 			$this->Customer->setVisible("test");
 			if($this->Customer->isVisible() == "test"){
 				$this->AddMessageFailed("Customer::Visible can be set to 'test'");
@@ -208,7 +208,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestVisibleOK(){
+		private function TestVisibleOK(){
 			$this->Customer->setVisible(true);
 			if($this->Customer->isVisible()){
 				$this->AddMessageSuccess("Customer::Visible can be set to 'true'");
@@ -239,7 +239,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestCompanyNOK(){
+		private function TestCompanyNOK(){
 		}
 		
 		/**
@@ -247,7 +247,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestCompanyOK(){
+		private function TestCompanyOK(){
 			$this->Customer->setCompany("Company");
 			if($this->Customer->getCompany() == "Company"){
 				$this->AddMessageSuccess("Customer::Company can be set to 'Company'");
@@ -285,7 +285,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestAddressNOK(){
+		private function TestAddressNOK(){
 			$this->Customer->setAddress("Address");
 			if($this->Customer->getAddress() == "Address"){
 				$this->AddMessageFailed("Customer::Address can be set to 'Address'");
@@ -299,7 +299,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		public function TestAddressOK(){
+		private function TestAddressOK(){
 			$this->Customer->setAddress(new Address());
 			if($this->Customer->getAddress() instanceof Address){
 				$this->AddMessageSuccess("Customer::Address can be set to Address-Object");

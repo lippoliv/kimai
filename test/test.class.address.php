@@ -75,7 +75,7 @@
 		 * 
 		 * @author	Oliver Lippert
 		 */
-		private function TestCity(){
+		public function TestCity(){
 			$this->TestCityOK();
 			$this->TestCityNOK();
 		}
@@ -131,7 +131,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		private function TestContact(){
+		public function TestContact(){
 			$this->TestContactOK();
 			$this->TestContactNOK();
 		}
@@ -195,7 +195,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		private function TestStreet(){
+		public function TestStreet(){
 			$this->TestStreetOK();
 			$this->TestStreetNOK();
 		}
@@ -259,7 +259,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		private function TestZipcode(){
+		public function TestZipcode(){
 			$this->TestZipcodeOK();
 			$this->TestZipcodeNOK();
 		}
@@ -331,7 +331,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		private function TestFax(){
+		public function TestFax(){
 			$this->TestFaxOK();
 			$this->TestFaxNOK();
 		}
@@ -387,7 +387,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		private function TestPhone(){
+		public function TestPhone(){
 			$this->TestPhoneOK();
 			$this->TestPhoneNOK();
 		}
@@ -451,7 +451,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		private function TestMobile(){
+		public function TestMobile(){
 			$this->TestMobileOK();
 			$this->TestMobileNOK();
 		}
@@ -523,7 +523,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		private function TestMail(){
+		public function TestMail(){
 			$this->TestMailOK();
 			$this->TestMailNOK();
 		}
@@ -621,7 +621,7 @@
 		 *
 		 * @author	Oliver Lippert
 		 */
-		private function TestWeb(){
+		public function TestWeb(){
 			$this->TestWebOK();
 			$this->TestWebNOK();
 		}
