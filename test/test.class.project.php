@@ -399,6 +399,51 @@
 			$this->TestApprovedOK();
 			$this->TestApprovedNOK();
 		}
+
+		/**
+		 * Runs all negative-tests for the Owner-Property of the Porject-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestOwnerNOK(){
+			$this->Project->setOwner("Owner");
+			if($this->Project->getOwner() == "Owner"){
+				$this->AddMessageFailed("Customer::Owner can be set to 'Owner'");
+			} else {
+				$this->AddMessageSuccess("Customer::Owner can't be set to 'Owner'");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the Owner-Property of the Porject-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestOwnerOK(){
+			$this->Project->setOwner(new Customer(false));
+			if($this->Project->getOwner() instanceof Customer){
+				$this->AddMessageSuccess("Customer::Owner can be set to Customer-Object");
+			} else {
+				$this->AddMessageFailed("Customer::Owner can't be set to Customer-Object");
+			}
+			
+			$this->Project->setOwner(null);
+			if($this->Project->getOwner() == null){
+				$this->AddMessageSuccess("Customer::Owner can be set to null");
+			} else {
+				$this->AddMessageFailed("Customer::Owner can't be set to null");
+			}
+		}
+		
+		/**
+		 * Runs all tests for the Owner-Property of the Porject-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestOwner(){
+			$this->TestOwnerOK();
+			$this->TestOwnerNOK();
+		}
 		
 		/**
 		 * Runs all tests for the Project-Object
@@ -412,6 +457,7 @@
 			$this->TestBudget();
 			$this->TestEffort();
 			$this->TestApproved();
+			$this->TestOwner();
 		}
 		
 		/**
