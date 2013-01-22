@@ -62,8 +62,8 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setID($ID){
-			if(is_int($ID)){
-				$this->ID = $ID;
+			if(is_double($ID) || is_int($ID)){
+				$this->ID = (double) $ID;
 			}
 		}
 		
