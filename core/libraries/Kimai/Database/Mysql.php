@@ -128,7 +128,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		if(!$result){
 			$this->logLastError('getCustomers');
 		} else {
-			for($i = 0; $i < $this->conn->RowCount(); $i++){
+			while(!$this->conn->EndOfSeek()){
 				$row = $this->conn->Row();
 				
 				$address = new Address();
@@ -2321,7 +2321,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		if(!$result){
 			$this->logLastError('getProjects');
 		} else {
-			for($i = 0; $i < $this->conn->RowCount(); $i++){
+			while(!$this->conn->EndOfSeek()){
 				$row = $this->conn->Row();
 		
 				$Project = new Project();
