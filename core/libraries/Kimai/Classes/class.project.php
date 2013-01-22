@@ -122,7 +122,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setBudget($Budget){
-			if(is_double($ID) || is_int($ID)){
+			if(is_double($Budget) || is_int($Budget)){
 				$this->Budget = (double) $Budget;
 			}
 		}

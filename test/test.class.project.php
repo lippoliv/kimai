@@ -188,14 +188,15 @@
 		 */
 		private function TestBudgetNOK(){
 			$this->Project->setBudget("test");
-			if($this->Project->getBudget() == "test"){
+			
+			if(((string) $this->Project->getBudget()) == "test"){
 				$this->AddMessageFailed("Project::Budget can be set to 'test'");
 			} else {
 				$this->AddMessageSuccess("Project::Budget can't be set to 'test'");
 			}
 
 			$this->Project->setBudget("");
-			if($this->Project->getBudget() == ""){
+			if(((string)$this->Project->getBudget()) == ""){
 				$this->AddMessageFailed("Project::Budget can be set to ''");
 			} else {
 				$this->AddMessageSuccess("Project::Budget can't be set to ''");
