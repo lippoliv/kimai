@@ -17,6 +17,8 @@
 	 * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
 	 */
 	
+	include_once 'class.customer.php';
+	
 	/**
 	 * Represents information about an Project
 	 * 
