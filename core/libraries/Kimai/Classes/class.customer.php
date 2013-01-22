@@ -31,6 +31,7 @@
 		private $Company;
 		private $Deleted;
 		private $Address;
+		private $Projects;
 		
 		/**
 		 * Initializes the Object-Instance
@@ -41,6 +42,7 @@
 		 */
 		public function __construct($Deleted){
 			$this->Deleted = $Deleted;
+			$this->Projects = null;
 		}
 		
 		/**
@@ -219,12 +221,30 @@
 		}
 		
 		/**
+		 * Returns all Projects of this Customer as an Array
+		 * 
+		 * @return	Array	all Customers Projects
+		 * 
+		 * @author	Oliver Lippert
+		 */
+		public function getProjects(){
+			global $database;
+			
+			//Check if the Projects for this Customer has ever been loaded, if not: do it
+			if($this->Projects == null){
+				$this->Projects = $database->getProjects($this);
+			}
+			
+			return $this->Projects;
+		}
+		
+		/**
 		 * Returns all the Customer-Propertys in an simple String
 		 * 
 		 * @return	string	all Customer-Propertys
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />COMPANY ". $this->getCompany() ."<br />COMMENT ". $this->getComment() ."<br />VISIBLE ". $this->isVisible() ."<br />DELETED ". $this->isDeleted() ."<br>ADRESS ". $this->getAddress()->toString() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />COMPANY ". $this->getCompany() ."<br />COMMENT ". $this->getComment() ."<br />VISIBLE ". $this->isVisible() ."<br />DELETED ". $this->isDeleted() ."<br>ADDRESS ". $this->getAddress()->toString() ."<br>MY PROJECTS ". count($this->getProjects()) ."</div>";
 		}
 	}
 ?>

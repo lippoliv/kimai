@@ -2311,11 +2311,21 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 	/**
 	 * Loads all Projects from the Database an returns them as Project-Objects
 	 * 
+	 * @param	Customer $Customer	<i>(optional)</i> the Customer, the Projects should be filtered for
+	 * 
 	 * @return	Array	the array of Project-Instances
+	 * 
+	 * @author	Oliver Lippert
 	 */
-	public function getProjects() {
+	public function getProjects($Customer = null) {
+		$filter = array();
+		
+		if($Customer != null){
+			$filter['customerID'] = MySQL::SQLValue($Customer->getID(), MySQL::SQLVALUE_NUMBER);
+		}
+		
 		$table = $this->getProjectTable();
-		$result = $this->conn->SelectRows($table);
+		$result = $this->conn->SelectRows($table, $filter);
 		
 		$arr = array();
 		if(!$result){
