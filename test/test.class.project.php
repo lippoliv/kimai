@@ -326,6 +326,79 @@
 			$this->TestEffortOK();
 			$this->TestEffortNOK();
 		}
+
+		/**
+		 * Runs all negative-tests for the Approved-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestApprovedNOK(){
+			$this->Project->setApproved("test");
+			if($this->Project->getApproved() == "test"){
+				$this->AddMessageFailed("Project::Approved can be set to 'test'");
+			} else {
+				$this->AddMessageSuccess("Project::Approved can't be set to 'test'");
+			}
+
+			$this->Project->setApproved("");
+			if($this->Project->getApproved() == ""){
+				$this->AddMessageFailed("Project::Approved can be set to ''");
+			} else {
+				$this->AddMessageSuccess("Project::Approved can't be set to ''");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the Approved-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestApprovedOK(){
+			$this->Project->setApproved(1);
+			if($this->Project->getApproved() == 1){
+				$this->AddMessageSuccess("Project::Approved can be set to 1");
+			} else {
+				$this->AddMessageFailed("Project::Approved can't be set to 1");
+			}
+			
+			$this->Project->setApproved(-1);
+			if($this->Project->getApproved() == -1){
+				$this->AddMessageSuccess("Project::Approved can be set to -1");
+			} else {
+				$this->AddMessageFailed("Project::Approved can't be set to -1");
+			}
+			
+			$this->Project->setApproved(1.25);
+			if($this->Project->getApproved() == 1.25){
+				$this->AddMessageSuccess("Project::Approved can be set to 1.25");
+			} else {
+				$this->AddMessageFailed("Project::Approved can't be set to 1.25");
+			}
+			
+			$this->Project->setApproved(-1.25);
+			if($this->Project->getApproved() == -1.25){
+				$this->AddMessageSuccess("Project::Approved can be set to -1.25");
+			} else {
+				$this->AddMessageFailed("Project::Approved can't be set to -1.25");
+			}
+			
+			$this->Project->setApproved(0);
+			if($this->Project->getApproved() == 0){
+				$this->AddMessageSuccess("Project::Approved can be set to 0");
+			} else {
+				$this->AddMessageFailed("Project::Approved can't be set to 0");
+			}
+		}
+
+		/**
+		 * Runs all tests for the Approved-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestApproved(){
+			$this->TestApprovedOK();
+			$this->TestApprovedNOK();
+		}
 		
 		/**
 		 * Runs all tests for the Project-Object
@@ -338,6 +411,7 @@
 			$this->TestVisible();
 			$this->TestBudget();
 			$this->TestEffort();
+			$this->TestApproved();
 		}
 		
 		/**
