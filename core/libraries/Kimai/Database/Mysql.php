@@ -19,9 +19,9 @@
 
 include(WEBROOT.'libraries/mysql.class.php');
 
-include_once WEBROOT.'libraries/Kimai/Classes/class.customer.php';
-include_once WEBROOT.'libraries/Kimai/Classes/class.address.php';
-include_once WEBROOT.'libraries/Kimai/Classes/class.project.php';
+include_once 'Kimai/Classes/class.customer.php';
+include_once 'Kimai/Classes/class.address.php';
+include_once 'Kimai/Classes/class.project.php';
 
 /**
  * Provides the database layer for MySQL.

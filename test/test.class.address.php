@@ -17,7 +17,7 @@
 	 * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
 	 */
 	
-	include_once '../core/libraries/Kimai/Classes/class.address.php';
+	include_once 'Kimai/Classes/class.address.php';
 	
 	/**
 	 * Runs all Tests for the Address-Object
