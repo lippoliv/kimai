@@ -180,6 +180,79 @@
 			$this->TestVisibleOK();
 			$this->TestVisibleNOK();
 		}
+
+		/**
+		 * Runs all negative-tests for the Budget-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestBudgetNOK(){
+			$this->Project->setBudget("test");
+			if($this->Project->getBudget() == "test"){
+				$this->AddMessageFailed("Project::Budget can be set to 'test'");
+			} else {
+				$this->AddMessageSuccess("Project::Budget can't be set to 'test'");
+			}
+
+			$this->Project->setBudget("");
+			if($this->Project->getBudget() == ""){
+				$this->AddMessageFailed("Project::Budget can be set to ''");
+			} else {
+				$this->AddMessageSuccess("Project::Budget can't be set to ''");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the Budget-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestBudgetOK(){
+			$this->Project->setBudget(1);
+			if($this->Project->getBudget() == 1){
+				$this->AddMessageSuccess("Project::Budget can be set to 1");
+			} else {
+				$this->AddMessageFailed("Project::Budget can't be set to 1");
+			}
+			
+			$this->Project->setBudget(-1);
+			if($this->Project->getBudget() == -1){
+				$this->AddMessageSuccess("Project::Budget can be set to -1");
+			} else {
+				$this->AddMessageFailed("Project::Budget can't be set to -1");
+			}
+			
+			$this->Project->setBudget(1.25);
+			if($this->Project->getBudget() == 1.25){
+				$this->AddMessageSuccess("Project::Budget can be set to 1.25");
+			} else {
+				$this->AddMessageFailed("Project::Budget can't be set to 1.25");
+			}
+			
+			$this->Project->setBudget(-1.25);
+			if($this->Project->getBudget() == -1.25){
+				$this->AddMessageSuccess("Project::Budget can be set to -1.25");
+			} else {
+				$this->AddMessageFailed("Project::Budget can't be set to -1.25");
+			}
+			
+			$this->Project->setBudget(0);
+			if($this->Project->getBudget() == 0){
+				$this->AddMessageSuccess("Project::Budget can be set to 0");
+			} else {
+				$this->AddMessageFailed("Project::Budget can't be set to 0");
+			}
+		}
+
+		/**
+		 * Runs all tests for the Budget-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestBudget(){
+			$this->TestBudgetOK();
+			$this->TestBudgetNOK();
+		}
 		
 		/**
 		 * Runs all tests for the Project-Object
@@ -190,6 +263,7 @@
 			$this->TestID();
 			$this->TestName();
 			$this->TestVisible();
+			$this->TestBudget();
 		}
 		
 		/**
