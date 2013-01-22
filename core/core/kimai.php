@@ -21,6 +21,11 @@
 // = Smarty (initialize class) =
 // ============================= 
 include('../includes/basics.php');
+include_once 'Kimai/Classes/class.kimai.php';
+
+global $Kimai;
+$Kimai = new Kimai();
+
 $view = new Zend_View();
 $view->setBasePath(WEBROOT . '/templates');
 

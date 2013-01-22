@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
  */
-
+	
 /**
  * Show an login window or process the login request. On succes the user
  * will be redirected to core/kimai.php.
@@ -50,6 +50,10 @@ ob_start();
 // = standard includes =
 // =====================
 require('includes/basics.php');
+
+include_once 'Kimai/Classes/class.kimai.php';
+global $Kimai;
+$Kimai = new Kimai();
 
 $view = new Zend_View();
 $view->setBasePath(WEBROOT . '/templates');

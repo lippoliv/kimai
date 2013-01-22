@@ -17,6 +17,7 @@
 	 * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
 	 */
 	include_once 'class.address.php';
+	include_once 'class.project.php';
 	
 	/**
 	 * Represents an Kimai-Customer with all of his propertys and all of his relevant functionalitys
