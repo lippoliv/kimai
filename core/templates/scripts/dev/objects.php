@@ -1,8 +1,7 @@
 <div id='developement'>
-	<?php global $database; ?>
 	<?php global $Kimai; ?>
 	<h2>Customers</h2>
-	<?php foreach($database->getCustomers() as $Customer): ?>
+	<?php foreach($Kimai->getCustomers() as $Customer): ?>
 		<?php echo $Customer->toString(); ?>
 	<?php endforeach; ?>
 	

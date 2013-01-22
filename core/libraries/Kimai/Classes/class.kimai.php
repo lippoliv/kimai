@@ -26,6 +26,7 @@
 	class Kimai{
 		private $Datastorage;
 		private $Projects;
+		private $Customers;
 		
 		/**
 		 * Initializes the Kimai-Instance
@@ -37,6 +38,7 @@
 			
 			$this->Datastorage = $database;
 			$this->Projects = null;
+			$this->Customers = null;
 		}
 		
 		/**
@@ -52,6 +54,21 @@
 			}
 			
 			return $this->Projects;
+		}
+		
+		/**
+		 * Returns all through Kimai managed Customers
+		 * 
+		 * @return	Array	all through Kimai managed Customers
+		 * 
+		 * @author	Oliver Lippert
+		 */
+		public function getCustomers(){
+			if($this->Customers == null){
+				$this->Customers = $this->Datastorage->getCustomers();
+			}
+			
+			return $this->Customers;
 		}
 	}
 ?>
