@@ -2336,12 +2336,12 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		
 				$Project = new Project();
 			
-				$Project->setID($row->projectID);
+				$Project->setID((double) $row->projectID);
 				$Project->setName($row->name);
-				$Project->setVisible($row->visible);
-				$Project->setBudget($row->budget);
-				$Project->setEffort($row->effort);
-				$Project->setApproved($row->approved);
+				$Project->setVisible((bool) $row->visible);
+				$Project->setBudget((double) $row->budget);
+				$Project->setEffort((double) $row->effort);
+				$Project->setApproved((double) $row->approved);
 				$Project->setOwner($this->getCustomer($row->customerID));
 				
 				$arr[] = $Project;
