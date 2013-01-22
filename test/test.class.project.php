@@ -33,12 +33,64 @@
 		}
 		
 		/**
+		 * Runs all negative-tests for the ID-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestIDNOK(){
+			$this->Project->setID("*?");
+			if($this->Project->getID() == "*?"){
+				$this->AddMessageFailed("Project::ID can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Project::ID can't be set to just special characters");
+			}
+			
+			$this->Project->setID("hannes");
+			if($this->Project->getID() == "hannes"){
+				$this->AddMessageFailed("Project::ID can be set to 'hannes'");
+			} else {
+				$this->AddMessageSuccess("Project::ID can't be set to 'hannes'");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the ID-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestIDOK(){
+			$this->Project->setID(1);
+			if($this->Project->getID() == 1){
+				$this->AddMessageSuccess("Project::ID can be set to 1");
+			} else {
+				$this->AddMessageFailed("Project::ID can't be set to 1");
+			}
+
+			$this->Project->setID(-1);
+			if($this->Project->getID() == -1){
+				$this->AddMessageSuccess("Project::ID can be set to -1");
+			} else {
+				$this->AddMessageFailed("Project::ID can't be set to -1");
+			}
+		}
+		
+		/**
+		 * Runs all tests for the ID-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestID(){
+			$this->TestIDOK();
+			$this->TestIDNOK();
+		}
+		
+		/**
 		 * Runs all tests for the Project-Object
 		 *
 		 * @author	Oliver Lippert
 		 */
 		public function RunTests(){
-			
+			$this->TestID();
 		}
 		
 		/**
