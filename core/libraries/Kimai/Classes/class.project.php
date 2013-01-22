@@ -184,7 +184,9 @@
 		 * @author	Oliver Lippert
 		 */
 		public function setOwner($Owner){
-			$this->Owner = $Owner;
+			if($Owner instanceof Customer || $Owner == null){
+				$this->Owner = $Owner;
+			}
 		}
 
 		/**
