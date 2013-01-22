@@ -156,6 +156,50 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		return $retValue;
 	}
 
+  	/**
+  	 * Load the Customer with the given ID from the Database
+  	 * 
+  	 * @return 	boolean|Customer	false or an Array of Customer-Instances
+  	 * 
+  	 * @author 	Oliver Lippert
+  	 */
+	public function getCustomer($ID){
+		$retValue = false;
+		
+		$filter['customerID'] = MySQL::SQLValue($ID, MySQL::SQLVALUE_NUMBER);
+		$table = $this->getCustomerTable();
+		$result = $this->conn->SelectRows($table, $filter);
+		
+		if(!$result){
+			$this->logLastError('getCustomer');
+		} else {
+			$row = $this->conn->Row();
+			
+			$address = new Address();
+			$address->setCity($row->city);
+			$address->setContact($row->contact);
+			$address->setFax($row->fax);
+			$address->setMail($row->mail);
+			$address->setMobile($row->mobile);
+			$address->setPhone($row->phone);
+			$address->setStreet($row->street);
+			$address->setWeb($row->homepage);
+			$address->setZipcode($row->zipcode);
+			
+			$customer = new Customer($row->trash);
+			$customer->setID(intval($row->customerID));
+			$customer->setComment($row->comment);
+			$customer->setCompany($row->company);
+			$customer->setName($row->name);
+			$customer->setVisible((bool) $row->visible);
+			$customer->setAddress($address);
+			
+			$retValue = $customer;
+		}
+		
+		return $retValue;
+	}
+
   /**
   * Edits a customer by replacing his data by the new array
   *
@@ -2269,10 +2313,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 	public function getProjects() {
 		$p = $this->kga['server_prefix'];
 		
-		$query = "SELECT project.*, customer.name AS customerName
-			FROM ${p}projects AS project
-			JOIN ${p}customers AS customer USING(customerID)";
-		
+		$query = "SELECT * FROM ${p}projects";
 		$this->conn->Query($query);
 		  
 		$arr = array();
@@ -2283,19 +2324,13 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			$row = $this->conn->Row();
 			$Project = new Project();
 			
-			/*
-			$arr[$i]['customerName'] = $row->customerName;
-			$arr[$i]['customerID']   = $row->customerID;
-			*/
-			
 			$Project->setID($row->projectID);
 			$Project->setName($row->name);
 			$Project->setVisible($row->visible);
 			$Project->setBudget($row->budget);
 			$Project->setEffort($row->effort);
 			$Project->setApproved($row->approved);
-			
-			//TODO: set the project-owning customer
+			$Project->setOwner($this->getCustomer($row->customerID));
 			
 			$arr[] = $Project;
 		}

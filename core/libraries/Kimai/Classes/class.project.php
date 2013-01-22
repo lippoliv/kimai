@@ -29,6 +29,7 @@
 		private $Budget;
 		private $Effort;
 		private $Approved;
+		private $Owner;
 		
 		/**
 		 * Returns the ID of the Project
@@ -163,6 +164,28 @@
 		}
 
 		/**
+		 * Returns the Owner of the Project
+		 *
+		 * @return	Customer	the Owner of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getOwner(){
+			return $this->Owner;
+		}
+		
+		/**
+		 * Defines the Owner of the Project
+		 *
+		 * @param	Customer	the Owner of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setOwner($Owner){
+			$this->Owner = $Owner;
+		}
+
+		/**
 		 * Returns the stored Project-Information as an HTML-Formated String
 		 *
 		 * @return	string	the Project-Information
@@ -170,7 +193,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />BUDGET ". $this->getBudget() ."<br />EFFORT ". $this->getEffort() ."<br />APPROVED ". $this->getApproved() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />BUDGET ". $this->getBudget() ."<br />EFFORT ". $this->getEffort() ."<br />APPROVED ". $this->getApproved() ."<br />OWNER ". $this->getOwner()->getName() ."</div>";
 		}
 	}
 ?>
