@@ -124,6 +124,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		$table = $this->getCustomerTable();
 		$result = $this->conn->SelectRows($table);
 		
+		$retValue = array();
 		if(!$result){
 			$this->logLastError('getCustomers');
 		} else {
@@ -159,12 +160,14 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
   	/**
   	 * Load the Customer with the given ID from the Database
   	 * 
-  	 * @return 	boolean|Customer	false or an Array of Customer-Instances
+  	 * @param	double $ID		the ID of the Customer, that should be loaded
+  	 * 
+  	 * @return 	null|Customer	null or an Customer-Instance
   	 * 
   	 * @author 	Oliver Lippert
   	 */
 	public function getCustomer($ID){
-		$retValue = false;
+		$retValue = null;
 		
 		$filter['customerID'] = MySQL::SQLValue($ID, MySQL::SQLVALUE_NUMBER);
 		$table = $this->getCustomerTable();
@@ -2314,6 +2317,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		$table = $this->getProjectTable();
 		$result = $this->conn->SelectRows($table);
 		
+		$arr = array();
 		if(!$result){
 			$this->logLastError('getProjects');
 		} else {
