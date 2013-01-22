@@ -25,6 +25,7 @@
 	 */
 	class Kimai{
 		private $Datastorage;
+		private $Projects;
 		
 		/**
 		 * Initializes the Kimai-Instance
@@ -35,6 +36,22 @@
 			global $database;
 			
 			$this->Datastorage = $database;
+			$this->Projects = null;
+		}
+		
+		/**
+		 * Returns all through Kimai managed Projects
+		 * 
+		 * @return	Array	all through Kimai managed Projects
+		 * 
+		 * @author	Oliver Lippert
+		 */
+		public function getProjects(){
+			if($this->Projects == null){
+				$this->Projects = $this->Datastorage->getProjects();
+			}
+			
+			return $this->Projects;
 		}
 	}
 ?>
