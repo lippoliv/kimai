@@ -137,6 +137,51 @@
 		}
 		
 		/**
+		 * Runs all negative-tests for the Visible-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestVisibleNOK(){
+			$this->Project->setVisible("test");
+			if($this->Project->isVisible() == "test"){
+				$this->AddMessageFailed("Project::Visible can be set to 'test'");
+			} else {
+				$this->AddMessageSuccess("Project::Visible can't be set to 'test'");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the Visible-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestVisibleOK(){
+			$this->Project->setVisible(true);
+			if($this->Project->isVisible()){
+				$this->AddMessageSuccess("Project::Visible can be set to 'true'");
+			} else {
+				$this->AddMessageFailed("Project::Visible can't be set to 'true'");
+			}
+			
+			$this->Project->setVisible(false);
+			if(!$this->Project->isVisible()){
+				$this->AddMessageSuccess("Project::Visible can be set to 'false'");
+			} else {
+				$this->AddMessageFailed("Project::Visible can't be set to 'false'");
+			}
+		}
+
+		/**
+		 * Runs all tests for the Visible-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestVisible(){
+			$this->TestVisibleOK();
+			$this->TestVisibleNOK();
+		}
+		
+		/**
 		 * Runs all tests for the Project-Object
 		 *
 		 * @author	Oliver Lippert
@@ -144,6 +189,7 @@
 		public function RunTests(){
 			$this->TestID();
 			$this->TestName();
+			$this->TestVisible();
 		}
 		
 		/**
