@@ -17,7 +17,7 @@
 	 * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
 	 */
 	
-	include_once 'Kimai/Classes/class.address.php';
+	include_once 'Kimai/Classes/class.project.php';
 
 	/**
 	 * Does all Tests for the Project-Object
@@ -83,6 +83,58 @@
 			$this->TestIDOK();
 			$this->TestIDNOK();
 		}
+
+		/**
+		 * Runs all negative-tests for the Name-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestNameNOK(){
+			$this->Project->setName("*?");
+			if($this->Project->getName() == "*?"){
+				$this->AddMessageFailed("Project::Name can be set to just special characters");
+			} else {
+				$this->AddMessageSuccess("Project::Name can't be set to just special characters");
+			}
+		}
+
+		/**
+		 * Runs all positive-tests for the Name-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		private function TestNameOK(){
+			$this->Project->setName("Name");
+			if($this->Project->getName() == "Name"){
+				$this->AddMessageSuccess("Project::Name can be set to 'Name'");
+			} else {
+				$this->AddMessageFailed("Project::Name can't be set to 'Name'");
+			}
+
+			$this->Project->setName("Name Name");
+			if($this->Project->getName() == "Name Name"){
+				$this->AddMessageSuccess("Project::Name can be set to 'Name Name'");
+			} else {
+				$this->AddMessageFailed("Project::Name can't be set to 'Name Name'");
+			}
+
+			$this->Project->setName("");
+			if($this->Project->getName() == ""){
+				$this->AddMessageSuccess("Project::Name can be set to ''");
+			} else {
+				$this->AddMessageFailed("Project::Name can't be set to ''");
+			}
+		}
+
+		/**
+		 * Runs all tests for the Name-Property of the Project-Object
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function TestName(){
+			$this->TestNameOK();
+			$this->TestNameNOK();
+		}
 		
 		/**
 		 * Runs all tests for the Project-Object
@@ -91,6 +143,7 @@
 		 */
 		public function RunTests(){
 			$this->TestID();
+			$this->TestName();
 		}
 		
 		/**
