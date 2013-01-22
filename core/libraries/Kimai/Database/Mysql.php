@@ -2311,28 +2311,27 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 	 * @return	Array	the array of Project-Instances
 	 */
 	public function getProjects() {
-		$p = $this->kga['server_prefix'];
+		$table = $this->getProjectTable();
+		$result = $this->conn->SelectRows($table);
 		
-		$query = "SELECT * FROM ${p}projects";
-		$this->conn->Query($query);
-		  
-		$arr = array();
-		$i=0;
-		  
-		$this->conn->MoveFirst();
-		while(!$this->conn->EndOfSeek()){
-			$row = $this->conn->Row();
-			$Project = new Project();
+		if(!$result){
+			$this->logLastError('getProjects');
+		} else {
+			for($i = 0; $i < $this->conn->RowCount(); $i++){
+				$row = $this->conn->Row();
+		
+				$Project = new Project();
 			
-			$Project->setID($row->projectID);
-			$Project->setName($row->name);
-			$Project->setVisible($row->visible);
-			$Project->setBudget($row->budget);
-			$Project->setEffort($row->effort);
-			$Project->setApproved($row->approved);
-			$Project->setOwner($this->getCustomer($row->customerID));
-			
-			$arr[] = $Project;
+				$Project->setID($row->projectID);
+				$Project->setName($row->name);
+				$Project->setVisible($row->visible);
+				$Project->setBudget($row->budget);
+				$Project->setEffort($row->effort);
+				$Project->setApproved($row->approved);
+				$Project->setOwner($this->getCustomer($row->customerID));
+				
+				$arr[] = $Project;
+			}
 		}
 		
 		return $arr;
