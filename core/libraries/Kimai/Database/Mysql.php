@@ -121,7 +121,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
   	 */
 	public function getCustomers(){
 		$table = $this->getCustomerTable();
-		$result = $this->conn->SelectRows($table);
+		$result = $this->conn->SelectRows($table, null, null, "name");
 		
 		$retValue = array();
 		if(!$result){
