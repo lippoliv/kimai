@@ -25,8 +25,23 @@
 	 */
 	class Kimai{
 		private $Datastorage;
+		
+		/**
+		 * 
+		 * @var Project[]
+		 */
 		private $Projects;
+		
+		/**
+		 * 
+		 * @var Customer[]
+		 */
 		private $Customers;
+		
+		/**
+		 * 
+		 * @var Activity[]
+		 */
 		private $Activities;
 		
 		/**
