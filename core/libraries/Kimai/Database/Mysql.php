@@ -115,13 +115,11 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
   	/**
   	 * Loads all Customers from the Database an returns them as Customer-Objects
   	 * 
-  	 * @return 	boolean|Array	false or an Array of Customer-Instances
+  	 * @return 	Array	the Array of Customer-Instances
   	 * 
   	 * @author 	Oliver Lippert
   	 */
 	public function getCustomers(){
-		$retValue = false;
-		
 		$table = $this->getCustomerTable();
 		$result = $this->conn->SelectRows($table);
 		
@@ -2938,13 +2936,11 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 	/**
 	 * Loads all Activities from the Database an returns them as Activity-Objects
 	 *
-	 * @return 	null|Array	null or an Array of Activity-Instances
+	 * @return 	Array	the Array of Activity-Instances
 	 *
 	 * @author 	Oliver Lippert
 	 */
 	public function getActivities() {
-		$retValue = null;
-		
 		$table = $this->getActivityTable();
 		$result = $this->conn->SelectRows($table);
 		
@@ -2958,14 +2954,11 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			}
 			
 			foreach($rows as $row){
-				/*
-				$arr[$i]['visible']  = $row->visible;
-				*/
-				
 				$Activity = new Activity();
 				
 				$Activity->setID($row->activityID);
 				$Activity->setName($row->name);
+				$Activity->setVisible($row->visible);
 				
 				$retValue[] = $Activity;
 			}

@@ -25,6 +25,7 @@
 	class Activity{
 		private $ID;
 		private $Name;
+		private $Visible;
 		
 		/**
 		 * Returns the ID of the Activity
@@ -71,6 +72,28 @@
 		}
 		
 		/**
+		 * Returns the Visibility of the Activity
+		 *
+		 * @return	bool	the Activity-Visibility
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function isVisible(){
+			return $this->Visible;
+		}
+		
+		/**
+		 * Defines the Visibility of the Activity
+		 *
+		 * @param	bool $Visible	the Activity-Visibility
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setVisible($Visible){
+			$this->Visible = $Visible;
+		}
+		
+		/**
 		 * Returns the stored Activity-Information as an HTML-Formated String
 		 *
 		 * @return	string	the Project-Information
@@ -78,7 +101,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."</div>";
 		}
 	}
 ?>
