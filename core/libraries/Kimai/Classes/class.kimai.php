@@ -45,7 +45,7 @@
 		/**
 		 * Returns all through Kimai managed Projects
 		 * 
-		 * @return	Array	all through Kimai managed Projects
+		 * @return	Project[]	all through Kimai managed Projects
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -60,7 +60,7 @@
 		/**
 		 * Returns all through Kimai managed Customers
 		 * 
-		 * @return	Array	all through Kimai managed Customers
+		 * @return	Customer[]	all through Kimai managed Customers
 		 * 
 		 * @author	Oliver Lippert
 		 */
@@ -77,7 +77,7 @@
 		 * 
 		 * @param	Project $Project	<i>(optional)</i> the Project to filter for
 		 * 
-		 * @return	Array	all through Kimai managed Activities
+		 * @return	Activity[]	all through Kimai managed Activities
 		 * 
 		 * @author	Oliver Lippert
 		 */
