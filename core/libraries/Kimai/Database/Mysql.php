@@ -2959,13 +2959,13 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			
 			foreach($rows as $row){
 				/*
-				$arr[$i]['name']     = $row->name;
 				$arr[$i]['visible']  = $row->visible;
 				*/
 				
 				$Activity = new Activity();
 				
 				$Activity->setID($row->activityID);
+				$Activity->setName($row->name);
 				
 				$retValue[] = $Activity;
 			}

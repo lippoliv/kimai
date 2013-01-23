@@ -24,17 +24,61 @@
 	 */
 	class Activity{
 		private $ID;
+		private $Name;
 		
+		/**
+		 * Returns the ID of the Activity
+		 *
+		 * @return	double	the Activity-ID
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function getID(){
 			return $this->ID;
 		}
 		
+		/**
+		 * Defines the ID of the Activity
+		 *
+		 * @param	double $ID	the Activity-ID
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function setID($ID){
 			$this->ID = $ID;
 		}
 		
+		/**
+		 * Returns the Name of the Activity
+		 *
+		 * @return	string	the Activity-Name
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getName(){
+			return $this->Name;
+		}
+		
+		/**
+		 * Defines the Name of the Activity
+		 *
+		 * @param	string $Name	the Activity-Name
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setName($Name){
+			$this->Name = $Name;
+		}
+		
+		/**
+		 * Returns the stored Activity-Information as an HTML-Formated String
+		 *
+		 * @return	string	the Project-Information
+		 *
+		 * @author	Oliver Lippert
+		 */
 		public function toString(){
-			return "<div>#". $this->getID() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."</div>";
 		}
 	}
 ?>
