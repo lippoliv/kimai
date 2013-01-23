@@ -28,6 +28,20 @@
 		private $Visible;
 		private $Comment;
 		private $Deleted;
+		private $Budget;
+		private $Effort;
+		private $Approved;
+		
+		/**
+		 * Initializes the propertys of the Object
+		 * 
+		 * @author	Oliver Lippert
+		 */
+		public function __construct(){
+			$this->setBudget(0);
+			$this->setEffort(0);
+			$this->setApproved(0);
+		}
 		
 		/**
 		 * Returns the ID of the Activity
@@ -140,6 +154,78 @@
 		}
 		
 		/**
+		 * Returns the Budget of the Activity
+		 *
+		 * @return	double	the Budget of the Activity
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getBudget(){
+			return $this->Budget;
+		}
+		
+		/**
+		 * Defines the Budget of the Activity
+		 *
+		 * @param	double $Budget	the Budget of the Activity
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setBudget($Budget){
+			if(is_double($Budget) || is_int($Budget)){
+				$this->Budget = (double) $Budget;
+			}
+		}
+		
+		/**
+		 * Returns the Effort of the Activity
+		 *
+		 * @return	double	the Effort of the Activity
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getEffort(){
+			return $this->Effort;
+		}
+		
+		/**
+		 * Defines the Effort of the Activity
+		 *
+		 * @param	double $Effort	the Effort of the Activity
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setEffort($Effort){
+			if(is_double($Effort) || is_int($Effort)){
+				$this->Effort = $Effort;
+			}
+		}
+		
+		/**
+		 * Returns the Approved of the Activity
+		 *
+		 * @return	double	the Approved of the Activity
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getApproved(){
+			return $this->Approved;
+		}
+		
+		/**
+		 * Defines the Approved of the Activity
+		 *
+		 * @param	double $Approved	the Approved of the Activity
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setApproved($Approved){
+			if(is_double($Approved) || is_int($Approved)){
+				$this->Approved = $Approved;
+			}
+		}
+		
+		/**
 		 * Returns the stored Activity-Information as an HTML-Formated String
 		 *
 		 * @return	string	the Project-Information
@@ -147,7 +233,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />COMMENT ". $this->getComment() ."<br />DELETED ". $this->isDeleted() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />COMMENT ". $this->getComment() ."<br />DELETED ". $this->isDeleted() ."<br />BUDGET ". $this->getBudget() ."<br />EFFORT ". $this->getEffort() ."<br />APPROVED ". $this->getApproved() ."</div>";
 		}
 	}
 ?>
