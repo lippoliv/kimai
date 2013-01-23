@@ -26,6 +26,7 @@
 		private $ID;
 		private $Name;
 		private $Visible;
+		private $Comment;
 		
 		/**
 		 * Returns the ID of the Activity
@@ -94,6 +95,28 @@
 		}
 		
 		/**
+		 * Returns the Comment of the Activity
+		 *
+		 * @return	string	the Activity-Comment
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getComment(){
+			return $this->Comment;
+		}
+		
+		/**
+		 * Defines the Comment of the Activity
+		 *
+		 * @param	string $Comment	the Activity-Comment
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setComment($Comment){
+			$this->Comment = $Comment;
+		}
+		
+		/**
 		 * Returns the stored Activity-Information as an HTML-Formated String
 		 *
 		 * @return	string	the Project-Information
@@ -101,7 +124,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />COMMENT ". $this->getComment() ."</div>";
 		}
 	}
 ?>
