@@ -23,14 +23,58 @@
 	 * @author	Oliver Lippert
 	 */
 	class Address{
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Contact;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Street;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $ZIP;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $City;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Phone;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Fax;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Mobile;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Mail;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Web;
 		
 		/**
