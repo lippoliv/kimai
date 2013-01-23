@@ -25,13 +25,52 @@
 	 * @author	Oliver Lippert
 	 */
 	class Customer{
+		/**
+		 * 
+		 * @var double
+		 */
 		private $ID;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Name;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Comment;
+		
+		/**
+		 * 
+		 * @var bool
+		 */
 		private $Visible;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Company;
+		
+		/**
+		 * 
+		 * @var bool
+		 */
 		private $Deleted;
+		
+		/**
+		 * 
+		 * @var Address
+		 */
 		private $Address;
+		
+		/**
+		 * 
+		 * @var Project
+		 */
 		private $Projects;
 		
 		/**
