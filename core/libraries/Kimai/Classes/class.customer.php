@@ -263,7 +263,7 @@
 		/**
 		 * Returns all Projects of this Customer as an Array
 		 * 
-		 * @return	Array	all Customers Projects
+		 * @return	Project[]	all Customers Projects
 		 * 
 		 * @author	Oliver Lippert
 		 */
