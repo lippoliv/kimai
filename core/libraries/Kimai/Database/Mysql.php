@@ -2960,6 +2960,7 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 				$Activity->setName($row->name);
 				$Activity->setVisible($row->visible);
 				$Activity->setComment($row->comment);
+				$Activity->setDeleted($row->trash);
 				
 				$retValue[] = $Activity;
 			}

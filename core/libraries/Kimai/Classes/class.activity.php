@@ -27,6 +27,7 @@
 		private $Name;
 		private $Visible;
 		private $Comment;
+		private $Deleted;
 		
 		/**
 		 * Returns the ID of the Activity
@@ -117,6 +118,28 @@
 		}
 		
 		/**
+		 * Returns the Deletion-State of the Activity
+		 *
+		 * @return	bool	the Activity-Deletion-State
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function isDeleted(){
+			return $this->Deleted;
+		}
+		
+		/**
+		 * Defines the Deletion-State of the Activity
+		 *
+		 * @param	bool $Deleted	the Activity-Deletion-State
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setDeleted($Deleted){
+			$this->Deleted = $Deleted;
+		}
+		
+		/**
 		 * Returns the stored Activity-Information as an HTML-Formated String
 		 *
 		 * @return	string	the Project-Information
@@ -124,7 +147,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />COMMENT ". $this->getComment() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />COMMENT ". $this->getComment() ."<br />DELETED ". $this->isDeleted() ."</div>";
 		}
 	}
 ?>
