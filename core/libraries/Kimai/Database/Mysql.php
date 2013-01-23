@@ -22,6 +22,7 @@ include(WEBROOT.'libraries/mysql.class.php');
 include_once 'Kimai/Classes/class.customer.php';
 include_once 'Kimai/Classes/class.address.php';
 include_once 'Kimai/Classes/class.project.php';
+include_once 'Kimai/Classes/class.activity.php';
 
 /**
  * Provides the database layer for MySQL.
@@ -2933,6 +2934,45 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
           return array();
       }
   }
+
+	/**
+	 * Loads all Activities from the Database an returns them as Activity-Objects
+	 *
+	 * @return 	null|Array	null or an Array of Activity-Instances
+	 *
+	 * @author 	Oliver Lippert
+	 */
+	public function getActivities() {
+		$retValue = null;
+		
+		$table = $this->getActivityTable();
+		$result = $this->conn->SelectRows($table);
+		
+		$retValue = array();
+		if ($result == false) {
+			$this->logLastError('get_activities');
+		} else {
+			$rows = array();
+			while(!$this->conn->EndOfSeek()){
+				$rows[] = $this->conn->Row();
+			}
+			
+			foreach($rows as $row){
+				/*
+				$arr[$i]['name']     = $row->name;
+				$arr[$i]['visible']  = $row->visible;
+				*/
+				
+				$Activity = new Activity();
+				
+				$Activity->setID($row->activityID);
+				
+				$retValue[] = $Activity;
+			}
+		}
+		
+		return $retValue;
+	}
 
   /**
   * Get an array of activities, which should be displayed for a specific project.

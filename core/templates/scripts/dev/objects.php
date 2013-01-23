@@ -9,4 +9,9 @@
 	<?php foreach($Kimai->getProjects() as $Project): ?>
 		<?php echo $Project->toString(); ?>
 	<?php endforeach; ?>
+	
+	<h2>Activities</h2>
+	<?php foreach($Kimai->getActivities() as $Activity): ?>
+		<?php echo $Activity->toString(); ?>
+	<?php endforeach; ?>
 </div>

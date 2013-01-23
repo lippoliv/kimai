@@ -27,6 +27,7 @@
 		private $Datastorage;
 		private $Projects;
 		private $Customers;
+		private $Activities;
 		
 		/**
 		 * Initializes the Kimai-Instance
@@ -69,6 +70,21 @@
 			}
 			
 			return $this->Customers;
+		}
+		
+		/**
+		 * Returns all through Kimai managed Activities
+		 * 
+		 * @return	Array	all through Kimai managed Activities
+		 * 
+		 * @author	Oliver Lippert
+		 */
+		public function getActivities(){
+			if($this->Activities == null){
+				$this->Activities = $this->Datastorage->getActivities();
+			}
+			
+			return $this->Activities;
 		}
 	}
 ?>
