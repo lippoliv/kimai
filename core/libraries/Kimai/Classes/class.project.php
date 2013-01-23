@@ -18,7 +18,8 @@
 	 */
 	
 	include_once 'class.customer.php';
-	
+	include_once 'class.activity.php';
+		
 	/**
 	 * Represents information about an Project
 	 * 
@@ -32,6 +33,21 @@
 		private $Effort;
 		private $Approved;
 		private $Owner;
+		private $Activities;
+		
+		/**
+		 * Initializes all parameters of the object
+		 * 
+		 * @author	Oliver Lippert
+		 */
+		public function __construct(){
+			$this->setOwner(null);
+			$this->setActivities(null);
+			$this->setApproved(0);
+			$this->setBudget(0);
+			$this->setEffort(0);
+			$this->setVisible(true);
+		}
 		
 		/**
 		 * Returns the ID of the Project
@@ -198,6 +214,34 @@
 				$this->Owner = $Owner;
 			}
 		}
+		
+		/**
+		 * Returns the Activities of the Project
+		 *
+		 * @return	Array	the Activities of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function getActivities(){
+			global $Kimai;
+			
+			if($this->Activities == null){
+				$this->Activities = $Kimai->getActivities($this);
+			}
+			
+			return $this->Activities;
+		}
+		
+		/**
+		 * Defines the Activities of the Project
+		 *
+		 * @param	Array $Activities	the Activities of the Project
+		 *
+		 * @author	Oliver Lippert
+		 */
+		public function setActivities($Activities){
+			$this->Activities = $Activities;
+		}
 
 		/**
 		 * Returns the stored Project-Information as an HTML-Formated String
@@ -207,7 +251,7 @@
 		 * @author	Oliver Lippert
 		 */
 		public function toString(){
-			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />BUDGET ". $this->getBudget() ."<br />EFFORT ". $this->getEffort() ."<br />APPROVED ". $this->getApproved() ."<br />OWNER ". $this->getOwner()->getName() ."</div>";
+			return "<div>#". $this->getID() .": ". $this->getName() ."<br />VISIBLE ". $this->isVisible() ."<br />BUDGET ". $this->getBudget() ."<br />EFFORT ". $this->getEffort() ."<br />APPROVED ". $this->getApproved() ."<br />OWNER ". $this->getOwner()->getName() ."<br />ACTIVITIES ". count($this->getActivities()) ."</div>";
 		}
 	}
 ?>

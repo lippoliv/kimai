@@ -2968,6 +2968,53 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 		
 		return $retValue;
 	}
+	
+	/**
+	 * Loads all Activities for the given Project from the Database
+	 *
+	 * @param	Project $Project	the Project to filter for
+	 *
+	 * @return 	Array				the Array of Activity-Instances
+	 *
+	 * @author 	Oliver Lippert
+	 */
+	public function getActivitiesForProject($Project) {
+		$projectID = MySQL::SQLValue($Project->getID(), MySQL::SQLVALUE_NUMBER);
+		
+		$p = $this->kga['server_prefix'];
+		$query = "SELECT activity.*, p_a.budget, p_a.approved, p_a.effort
+					FROM ${p}activities AS activity
+					LEFT JOIN ${p}projects_activities AS p_a USING(activityID)
+					WHERE projectID = $projectID OR projectID IS NULL;";
+		
+		$retVal = array();
+		$result = $this->conn->Query($query);
+		if($result == false){
+			$this->logLastError('get_activities_by_project');
+		} else {
+			$this->conn->MoveFirst();
+			while (!$this->conn->EndOfSeek()){
+				$rows[] = $this->conn->Row();
+			}
+			
+			foreach($rows as $row){
+				$Activity = new Activity();
+				
+				$Activity->setApproved($row->approved);
+				$Activity->setBudget($row->budget);
+				$Activity->setComment($row->comment);
+				$Activity->setDeleted($row->trash);
+				$Activity->setEffort($row->effort);
+				$Activity->setID($row->activityID);
+				$Activity->setName($row->name);
+				$Activity->setVisible($row->visible);
+				
+				$retVal[] = $Activity;
+			}
+		}
+		
+		return $retVal;
+	}
 
   /**
   * Get an array of activities, which should be displayed for a specific project.

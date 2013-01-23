@@ -75,16 +75,26 @@
 		/**
 		 * Returns all through Kimai managed Activities
 		 * 
+		 * @param	Project $Project	<i>(optional)</i> the Project to filter for
+		 * 
 		 * @return	Array	all through Kimai managed Activities
 		 * 
 		 * @author	Oliver Lippert
 		 */
-		public function getActivities(){
-			if($this->Activities == null){
+		public function getActivities($Project = null){
+			$ret = null;
+			
+			if($this->Activities == null && $Project == null){
 				$this->Activities = $this->Datastorage->getActivities();
 			}
 			
-			return $this->Activities;
+			if($Project == null){
+				$ret = $this->Activities;
+			} else {
+				$ret = $this->Datastorage->getActivitiesForProject($Project);
+			}
+			
+			return $ret;
 		}
 	}
 ?>
