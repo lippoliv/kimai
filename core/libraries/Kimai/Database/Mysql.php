@@ -3000,11 +3000,11 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
 			foreach($rows as $row){
 				$Activity = new Activity();
 				
-				$Activity->setApproved($row->approved);
-				$Activity->setBudget($row->budget);
+				$Activity->setApproved((double) $row->approved);
+				$Activity->setBudget((double) $row->budget);
 				$Activity->setComment($row->comment);
 				$Activity->setDeleted($row->trash);
-				$Activity->setEffort($row->effort);
+				$Activity->setEffort((double) $row->effort);
 				$Activity->setID($row->activityID);
 				$Activity->setName($row->name);
 				$Activity->setVisible($row->visible);
