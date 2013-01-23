@@ -26,13 +26,52 @@
 	 * @author	Oliver Lippert
 	 */
 	class Project{
+		/**
+		 * 
+		 * @var double
+		 */
 		private $ID;
+		
+		/**
+		 * 
+		 * @var string
+		 */
 		private $Name;
+		
+		/**
+		 * 
+		 * @var bool
+		 */
 		private $Visible;
+		
+		/**
+		 * 
+		 * @var double
+		 */
 		private $Budget;
+		
+		/**
+		 * 
+		 * @var double
+		 */
 		private $Effort;
+		
+		/**
+		 * 
+		 * @var double
+		 */
 		private $Approved;
+		
+		/**
+		 * 
+		 * @var Customer
+		 */
 		private $Owner;
+		
+		/**
+		 * 
+		 * @var Activity[]
+		 */
 		private $Activities;
 		
 		/**
