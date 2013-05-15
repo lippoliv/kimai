@@ -4009,9 +4009,11 @@ class Kimai_Database_Mysql extends Kimai_Database_Abstract {
   *
   * @param integer $start start time in unix seconds
   * @param integer $end end time in unix seconds
-  * @param integer $user filter for only this ID of auser
-  * @param integer $customer filter for only this ID of a customer
-  * @param integer $project filter for only this ID of a project
+  * @param array $users filter for only this ID of auser
+  * @param array $customers filter for only this ID of a customer
+  * @param array $projects filter for only this ID of a project
+  * @param array $activities
+  * 
   * @return array
   * @author sl
   */
