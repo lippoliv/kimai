@@ -23,13 +23,52 @@
 	 * @author	Oliver Lippert
 	 */
 	class Activity{
+		/**
+		 * 
+		 * @var unknown
+		 */
 		private $ID;
+		
+		/**
+		 * 
+		 * @var unknown
+		 */
 		private $Name;
+		
+		/**
+		 * 
+		 * @var unknown
+		 */
 		private $Visible;
+		
+		/**
+		 * 
+		 * @var unknown
+		 */
 		private $Comment;
+		
+		/**
+		 * 
+		 * @var unknown
+		 */
 		private $Deleted;
+		
+		/**
+		 * 
+		 * @var unknown
+		 */
 		private $Budget;
+		
+		/**
+		 * 
+		 * @var unknown
+		 */
 		private $Effort;
+		
+		/**
+		 * 
+		 * @var unknown
+		 */
 		private $Approved;
 		
 		/**
